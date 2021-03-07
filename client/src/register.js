@@ -65,6 +65,8 @@ export default class Register extends React.Component {
 
                     <button onClick={() => this.submit()}>Register</button>
                 </form>
+
+                <div>Click here to login</div>
             </div>
         );
     }

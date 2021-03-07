@@ -4,11 +4,13 @@ import ReactDOM from "react-dom";
 
 // import custom components
 
-import Register from "./register.js";
 import Welcome from "./welcome.js";
+import Logo from "./logo.js";
 
-ReactDOM.render(<HelloWorld />, document.querySelector("main"));
+// Differentiate between looged in and logged out using the URL
 
-function HelloWorld() {
-    return <div>Hello, World!</div>;
+if (location.pathname === "/welcome") {
+    ReactDOM.render(<Welcome />, document.querySelector("main"));
+} else {
+    ReactDOM.render(<Logo />, document.querySelector("main"));
 }

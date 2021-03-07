@@ -11,7 +11,6 @@ const authRouter = require("./routes/auth.js");
 
 // Setup cookie stuff
 
-const cookieParser = require("cookie-parser");
 const cookieSession = require("cookie-session");
 
 app.use(
