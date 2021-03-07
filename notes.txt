@@ -1,0 +1,8 @@
+To do: 
+
+-axios integrieren 
+-axios post route in register.js
+-register in welcome integrieren? 
+-server.js checken 
+-css
+
