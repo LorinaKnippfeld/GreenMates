@@ -24,26 +24,38 @@ app.use(
 
 app.use(express.json());
 
-// Setup html & css
-
-app.use(express.static("../client"));
-
-// Weird react things:
-
-app.use(compression());
+// Setup static data with react
 
 app.use(express.static(path.join(__dirname, "..", "client", "public")));
 
-app.get("*", function (req, res) {
-    res.sendFile(path.join(__dirname, "..", "client", "index.html"));
-});
+// Setup react stuff
+
+app.use(compression());
+
+// Use routing
+
+app.use(authRouter);
 
 // Redirect user based on login status
+
+// User is logged out route:
+// If logged in, redirect to logged in world
 
 app.get("/welcome", (request, response) => {
     if (request.session.user) {
         return response.redirect(302, "/");
     }
+    response.sendFile(path.join(__dirname, "..", "client", "index.html"));
+});
+
+// User is logged in route:
+// If not logged in, redirected to welcome
+
+app.get("*", function (request, response) {
+    if (!request.session.user) {
+        return response.redirect(302, "/welcome");
+    }
+
     response.sendFile(path.join(__dirname, "..", "client", "index.html"));
 });
 

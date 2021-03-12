@@ -36,12 +36,12 @@ export default class Register extends React.Component {
     submit() {
         const user = {
             firstname: this.state.firstname,
-            lastanme: this.state.lastname,
+            lastname: this.state.lastname,
             email: this.state.email,
             password: this.state.password,
         };
         axios
-            .post("/api/register", { user })
+            .post("/api/register", user)
             .then((response) => {
                 console.log("reponse fom register axios", response.data);
 

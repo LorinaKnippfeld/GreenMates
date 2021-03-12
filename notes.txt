@@ -1,8 +1,3 @@
-To do: 
+Frage: 
 
--axios integrieren 
--axios post route in register.js
--register in welcome integrieren? 
--server.js checken 
--css
-
+auth.js in mehrer Promises unterteilen und entsprechend mehr errors handeln? 

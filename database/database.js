@@ -3,7 +3,7 @@
 const spicedPG = require("spiced-pg");
 const db = spicedPG(
     process.env.DATABASE_URL ||
-        "postgres:lori:lori@localhost:5432/socialnetwork"
+        "postgres:clear:lori@localhost:5432/socialnetwork"
 );
 
 // Add users into database
