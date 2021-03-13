@@ -1,3 +1,7 @@
 Frage: 
 
-auth.js in mehrer Promises unterteilen und entsprechend mehr errors handeln? 
+in auth: 
+muss ich session auch hinzufügen (ja?) 
+muss ich crsf token auch hinzufügen?
+
+check Schreibweise von Link in Register/Login ?

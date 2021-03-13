@@ -1,7 +1,11 @@
 // import React & axios
 
 import React from "react";
-import axios from "axios";
+import axios from "./myAxios";
+
+// enable hashrouting
+
+import { Link } from "react-router-dom";
 
 // set up the class component
 
@@ -43,9 +47,10 @@ export default class Register extends React.Component {
         axios
             .post("/api/register", user)
             .then((response) => {
-                console.log("reponse fom register axios", response.data);
+                console.log("response from register axios", response.data);
 
                 if (response.data.success) {
+                    console.log("Register successful");
                     location.replace("/");
                 } else {
                     this.setState({ error: response.data.error });
@@ -72,6 +77,7 @@ export default class Register extends React.Component {
                         type="text"
                         name="firstname"
                         id="firstname"
+                        autoComplete="off"
                         onChange={(event) => this.handleChange(event)}
                     />
 
@@ -80,6 +86,7 @@ export default class Register extends React.Component {
                         type="text"
                         name="lastname"
                         id="lastname"
+                        autoComplete="off"
                         onChange={(event) => this.handleChange(event)}
                     />
 
@@ -88,6 +95,7 @@ export default class Register extends React.Component {
                         type="email"
                         name="email"
                         id="email"
+                        autoComplete="off"
                         onChange={(event) => this.handleChange(event)}
                     />
 
@@ -96,13 +104,17 @@ export default class Register extends React.Component {
                         type="password"
                         name="password"
                         id="password"
+                        autoComplete="off"
                         onChange={(event) => this.handleChange(event)}
                     />
 
                     <button onClick={() => this.submit()}>Register</button>
                 </form>
 
-                <div>Click here to login</div>
+                <p>
+                    {"Already registerd?"}
+                    <Link to="/login">Please login here.</Link>
+                </p>
             </div>
         );
     }

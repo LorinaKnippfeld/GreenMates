@@ -4,8 +4,8 @@ import ReactDOM from "react-dom";
 
 // import custom components
 
-import Welcome from "./welcome.js";
-import Logo from "./logo.js";
+import Welcome from "./Welcome.js";
+import Logo from "./Logo.js";
 
 // Differentiate between looged in and logged out using the URL
 

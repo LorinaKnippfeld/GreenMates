@@ -15,3 +15,9 @@ exports.addUser = (firstname, lastname, email, password) => {
         [firstname, lastname, email, password]
     );
 };
+
+// See if user exists in database
+
+exports.getUserByEmail = (email) => {
+    return db.query(`SELECT * FROM users WHERE email=$1;`, [email]);
+};

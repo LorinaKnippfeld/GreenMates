@@ -20,6 +20,15 @@ app.use(
     })
 );
 
+// Setup csrf token
+
+const csurf = require("csurf");
+app.use(csurf());
+app.use(function (request, response, next) {
+    response.cookie("mytoken", request.csrfToken());
+    next();
+});
+
 // Middleware for json use
 
 app.use(express.json());
