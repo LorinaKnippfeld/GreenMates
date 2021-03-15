@@ -22,8 +22,9 @@ export default class Login extends React.Component {
     // make axios request on clicking the button
 
     submit() {
+        const { email, password } = this.state;
         axios
-            .post("/api/login", this.state)
+            .post("/api/login", { email, password })
             .then((response) => {
                 const { success } = response.data;
                 if (success) {
@@ -79,8 +80,10 @@ export default class Login extends React.Component {
                 </form>
 
                 <p>
-                    {"Not registered yet?"}
-                    <Link to="/register">Register here.</Link>
+                    "Not registered yet?"
+                    <Link to="/">Register here</Link>
+                    "Forgotten your password?"
+                    <Link to="/passwordreset">Reset your password here</Link>
                 </p>
             </div>
         );

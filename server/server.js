@@ -8,6 +8,8 @@ const path = require("path");
 // Setup routing:
 
 const authRouter = require("./routes/auth.js");
+const resetRouter = require("./routes/reset.js");
+const profilesRouter = require("./routes/profiles.js");
 
 // Setup cookie stuff
 
@@ -44,6 +46,8 @@ app.use(compression());
 // Use routing
 
 app.use(authRouter);
+app.use(resetRouter);
+//app.use(profilesRouter);
 
 // Redirect user based on login status
 

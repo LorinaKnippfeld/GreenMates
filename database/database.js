@@ -8,11 +8,11 @@ const db = spicedPG(
 
 // Add users into database
 
-exports.addUser = (firstname, lastname, email, password) => {
+exports.addUser = (firstname, lastname, email, password_hash) => {
     return db.query(
         `INSERT INTO users (firstname, lastname, email, password_hash)
                         VALUES ($1,$2,$3,$4) RETURNING id, firstname, lastname`,
-        [firstname, lastname, email, password]
+        [firstname, lastname, email, password_hash]
     );
 };
 
@@ -20,4 +20,49 @@ exports.addUser = (firstname, lastname, email, password) => {
 
 exports.getUserByEmail = (email) => {
     return db.query(`SELECT * FROM users WHERE email=$1;`, [email]);
+};
+
+// Add secret pw reset code to database
+
+exports.addResetCode = (email, secretcode) => {
+    return db.query(
+        `INSERT INTO codes (email, secretcode)
+		VALUES ($1,$2)`,
+        [email, secretcode]
+    );
+};
+
+// Get secret pw reset code from the database
+
+exports.getResetCode = (email) => {
+    return db.query(
+        `SELECT secretcode FROM codes WHERE email=$1 AND
+         CURRENT_TIMESTAMP - created_at < INTERVAL '10 minutes'
+        ORDER BY created_at DESC LIMIT 1;`,
+        [email]
+    );
+};
+
+// Update the database with new password
+
+exports.updatePassword = (email, password_hash) => {
+    return db.query(`UPDATE users SET password_hash = $2 WHERE email = $1;`, [
+        email,
+        password_hash,
+    ]);
+};
+
+// Get user by id
+
+exports.getUserById = (id) => {
+    return db.query("SELECT * FROM users WHERE id = $1;", [id]);
+};
+
+// Update picture url to update profile pic
+
+exports.updatePhoto = (id, profile_picture_url) => {
+    return db.query(
+        "UPDATE users SET profile_picture_url = $2 WHERE id = $1 RETURNING *;",
+        [id, profile_picture_url]
+    );
 };

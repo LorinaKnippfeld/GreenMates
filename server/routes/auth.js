@@ -20,9 +20,9 @@ router.post("/api/register", (request, response) => {
     } else {
         bcrypt
             .genHash(password)
-            .then((hashedPassword) => {
+            .then((password_hash) => {
                 return database
-                    .addUser(firstname, lastname, email, hashedPassword)
+                    .addUser(firstname, lastname, email, password_hash)
                     .then((results) => {
                         request.session.user = results.rows[0];
                         response.json({

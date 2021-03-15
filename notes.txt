@@ -1,7 +1,4 @@
 Frage: 
 
-in auth: 
-muss ich session auch hinzufügen (ja?) 
-muss ich crsf token auch hinzufügen?
 
-check Schreibweise von Link in Register/Login ?
+check Schreibweise von Link in Register/Login
