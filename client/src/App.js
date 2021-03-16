@@ -35,14 +35,14 @@ export default class App extends React.Component {
         return (
             <div>
                 <ProfilePic
-                    url={user.profile_picture_url}
+                    url={user.profile_pic_url}
                     clickHandler={() =>
                         this.setState({ uploaderVisible: true })
                     }
                 />
                 {uploaderVisible && (
                     <Uploader
-                        url={user.profile_picture_url}
+                        url={user.profile_pic_url}
                         userHandler={(user) =>
                             this.setState({ user, uploaderVisible: false })
                         }

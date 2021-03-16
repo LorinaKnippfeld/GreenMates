@@ -31,7 +31,7 @@ export default class Uploader extends React.Component {
 
             const response = await axios.post("/api/user/profilepic", formData);
             if (response.data.success) {
-                this.props.userHandler(response.data.user);
+                this.props.userHandler(response.data.image);
             }
         })();
     }

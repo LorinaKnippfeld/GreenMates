@@ -9,8 +9,8 @@ export default class ProfilePic extends React.Component {
     }
 
     render() {
-        const { profile_pic_url, clickHandler } = this.props;
-        if (!profile_pic_url) {
+        const { url, clickHandler } = this.props;
+        if (!url) {
             return (
                 <div
                     className="profilePic"
@@ -25,7 +25,7 @@ export default class ProfilePic extends React.Component {
                     className="profilePic"
                     onClick={() => this.props.clickHandler()}
                 >
-                    <img src={profile_pic_url}></img>
+                    <img src={url}></img>
                 </div>
             );
         }
