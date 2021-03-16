@@ -60,9 +60,9 @@ exports.getUserById = (id) => {
 
 // Update picture url to update profile pic
 
-exports.updatePhoto = (id, profile_picture_url) => {
+exports.updatePhoto = (id, profile_pic_url) => {
     return db.query(
-        "UPDATE users SET profile_picture_url = $2 WHERE id = $1 RETURNING *;",
-        [id, profile_picture_url]
+        "UPDATE users SET profile_pic_url = $2 WHERE id = $1 RETURNING *;",
+        [id, profile_pic_url]
     );
 };

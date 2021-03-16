@@ -5,12 +5,12 @@ import ReactDOM from "react-dom";
 // import custom components
 
 import Welcome from "./Welcome.js";
-import Logo from "./Logo.js";
+import App from "./App.js";
 
 // Differentiate between looged in and logged out using the URL
 
 if (location.pathname === "/welcome") {
     ReactDOM.render(<Welcome />, document.querySelector("main"));
 } else {
-    ReactDOM.render(<Logo />, document.querySelector("main"));
+    ReactDOM.render(<App />, document.querySelector("main"));
 }

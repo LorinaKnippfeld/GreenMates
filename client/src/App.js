@@ -1,6 +1,11 @@
-import axios from "./myAxios";
+// setup classic component
 
-export default class App extends Component {
+import React from "react";
+import axios from "./myAxios";
+import Uploader from "./Uploader.js";
+import ProfilePic from "./ProfilePic.js";
+
+export default class App extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -9,29 +14,44 @@ export default class App extends Component {
         };
     }
 
+    // setup to setState to current user
+
     componentDidMount() {
-        axios.get("api/user").then((response) => {
+        axios.get("/api/user").then((response) => {
             this.setState({
                 user: response.data.user,
             });
         });
     }
 
+    // render if uploader visible or not
+
     render() {
-        const { user, uploaderVisible } = this.state.user;
+        const { user, uploaderVisible } = this.state;
 
-if(!user){
-    return <h1>Loading</h1>
-}
-
+        if (!user) {
+            return <h1>Loading</h1>;
+        }
         return (
-        
-                <div>
-                    <Welcome, {user.firstname} />
-                    <ProfilePicture url={user.profile_picture_url}
-                    clickHandler={() => this.setState = uploaderVisible: true}
-                </div>
-              
+            <div>
+                <ProfilePic
+                    url={user.profile_picture_url}
+                    clickHandler={() =>
+                        this.setState({ uploaderVisible: true })
+                    }
+                />
+                {uploaderVisible && (
+                    <Uploader
+                        url={user.profile_picture_url}
+                        userHandler={(user) =>
+                            this.setState({ user, uploaderVisible: false })
+                        }
+                        closeHandler={() => {
+                            this.setState({ uploaderVisible: false });
+                        }}
+                    />
+                )}
+            </div>
         );
     }
 }

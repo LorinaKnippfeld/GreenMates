@@ -47,7 +47,7 @@ app.use(compression());
 
 app.use(authRouter);
 app.use(resetRouter);
-//app.use(profilesRouter);
+app.use(profilesRouter);
 
 // Redirect user based on login status
 
