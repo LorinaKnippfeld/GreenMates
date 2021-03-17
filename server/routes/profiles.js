@@ -76,4 +76,22 @@ router.post(
     }
 );
 
+// Route for updating the bio
+
+router.post("/api/user/bio", (request, response) => {
+    const email = request.session.user.email;
+    const bio = request.body.bio;
+    database
+        .updateBio(email, bio)
+        .then((result) => {
+            response.json({
+                success: true,
+                result,
+            });
+        })
+        .catch((error) => {
+            console.log("error with updating bio", error);
+        });
+});
+
 module.exports = router;

@@ -4,6 +4,7 @@ import React from "react";
 import axios from "./myAxios";
 import Uploader from "./Uploader.js";
 import ProfilePic from "./ProfilePic.js";
+import Profile from "./Profile.js";
 
 export default class App extends React.Component {
     constructor() {
@@ -51,6 +52,21 @@ export default class App extends React.Component {
                         }}
                     />
                 )}
+                <Profile
+                    url={user.profile_pic_url}
+                    clickHandler={() =>
+                        this.setState({ uploaderVisible: true })
+                    }
+                    bio={user.bio}
+                    bioEditor={(newBio) => {
+                        this.setState({
+                            user: {
+                                ...this.state.user,
+                                bio: newBio,
+                            },
+                        });
+                    }}
+                />
             </div>
         );
     }
