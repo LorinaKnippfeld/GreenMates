@@ -94,4 +94,31 @@ router.post("/api/user/bio", (request, response) => {
         });
 });
 
+// Route for getting other profiles
+
+router.get("/api/users/:id", async (request, response) => {
+    const id = request.params.id;
+    const sessionUserId = request.session.user.id;
+    const isSelf = id == sessionUserId;
+
+    try {
+        const result = await database.getUserById(id);
+
+        if (result.rows.length == 0) {
+            // This user does not exist
+            return response.status(404).json({
+                error: "This user does not exist.",
+            });
+        }
+        response.json({
+            user: result.rows[0],
+            isSelf,
+        });
+    } catch (error) {
+        return response.status(401).json({
+            error: "Error with finding other user's profile.",
+        });
+    }
+});
+
 module.exports = router;

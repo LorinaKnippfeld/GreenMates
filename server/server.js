@@ -72,6 +72,17 @@ app.get("*", function (request, response) {
     response.sendFile(path.join(__dirname, "..", "client", "index.html"));
 });
 
+// Create logout route
+
+app.get("/logout", (request, response) => {
+    if (!request.session.user) {
+        return response.redirect(302, "/login");
+    }
+
+    request.session = null;
+    response.redirect("/");
+});
+
 // Setup server
 
 app.listen(process.env.PORT || 3001, function () {

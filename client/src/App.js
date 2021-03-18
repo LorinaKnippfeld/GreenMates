@@ -1,10 +1,12 @@
 // setup classic component
 
 import React from "react";
+import { Route, BrowserRouter } from "react-router-dom";
 import axios from "./myAxios";
 import Uploader from "./Uploader.js";
 import ProfilePic from "./ProfilePic.js";
 import Profile from "./Profile.js";
+import OtherProfile from "./OtherProfile.js";
 
 export default class App extends React.Component {
     constructor() {
@@ -52,21 +54,32 @@ export default class App extends React.Component {
                         }}
                     />
                 )}
-                <Profile
-                    url={user.profile_pic_url}
-                    clickHandler={() =>
-                        this.setState({ uploaderVisible: true })
-                    }
-                    bio={user.bio}
-                    bioEditor={(newBio) => {
-                        this.setState({
-                            user: {
-                                ...this.state.user,
-                                bio: newBio,
-                            },
-                        });
-                    }}
-                />
+
+                <BrowserRouter>
+                    <Route
+                        path="/user/"
+                        render={() => {
+                            return (
+                                <Profile
+                                    url={user.profile_pic_url}
+                                    clickHandler={() =>
+                                        this.setState({ uploaderVisible: true })
+                                    }
+                                    bio={user.bio}
+                                    bioEditor={(newBio) => {
+                                        this.setState({
+                                            user: {
+                                                ...this.state.user,
+                                                bio: newBio,
+                                            },
+                                        });
+                                    }}
+                                />
+                            );
+                        }}
+                    />
+                    <Route path="/users/:id" component={OtherProfile} />
+                </BrowserRouter>
             </div>
         );
     }
