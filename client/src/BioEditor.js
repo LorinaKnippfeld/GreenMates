@@ -25,8 +25,6 @@ export default class BioEditor extends React.Component {
         this.props.saveHandler(this.state.draft);
     }
 
-    ///// gucken wo savehandler ist
-
     render() {
         const { isEditing } = this.state;
         const { bio } = this.props;

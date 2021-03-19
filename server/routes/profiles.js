@@ -94,7 +94,7 @@ router.post("/api/user/bio", (request, response) => {
         });
 });
 
-// Route for getting other profiles
+// Route for getting other profiles (find other profile)
 
 router.get("/api/users/:id", async (request, response) => {
     const id = request.params.id;
@@ -119,6 +119,22 @@ router.get("/api/users/:id", async (request, response) => {
             error: "Error with finding other user's profile.",
         });
     }
+});
+
+// Route for finding other profiles (find people)
+
+router.get("/api/friendsearch/:q", (request, response) => {
+    database
+        .getMatchingUsers(request.params.q)
+        .then((result) => {
+            return response.json({
+                success: true,
+                found_people: result.rows,
+            });
+        })
+        .catch((error) => {
+            console.log("error with finding other user", error);
+        });
 });
 
 module.exports = router;

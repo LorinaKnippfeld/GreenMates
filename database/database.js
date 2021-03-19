@@ -70,8 +70,68 @@ exports.updatePhoto = (id, profile_pic_url) => {
 // Update bio
 
 exports.updateBio = (email, bio) => {
-    return db.query(`UPDATE users SET bio =  $2 WHERE email = $1 RETURNING *`, [
+    return db.query(`UPDATE users SET bio = $2 WHERE email = $1 RETURNING *`, [
         email,
         bio,
     ]);
+};
+
+// Find other users
+
+exports.getMatchingUsers = (query) => {
+    return db.query(
+        `SELECT * FROM users WHERE firstname ILIKE $1 OR lastname ILIKE $1
+ORDER BY created_at DESC
+        ;`,
+        [query + "%"]
+    );
+};
+
+// Get a friend request
+
+exports.getFriendRequest = (fromId, toId) => {
+    return db.query(
+        `
+        SELECT *
+        FROM friend_requests
+        WHERE
+            (from_id=$1 AND to_id=$2)
+        OR
+            (from_id=$2 AND to_id=$1);
+    `,
+        [fromId, toId]
+    );
+};
+
+// Add friend request
+
+exports.addFriendRequest = (fromId, toId) => {
+    return db.query(
+        `INSERT INTO friend_requests 
+            (from_id, to_id, accepted) 
+        VALUES 
+               ($1,$2, false) 
+        RETURNING 
+            *
+            `,
+        [fromId, toId]
+    );
+};
+
+// Delete friend request
+
+exports.deleteFriendRequest = (fromId, toId) => {
+    return db.query(
+        "DELETE FROM friend_requests WHERE (to_id = $1 AND from_id = $2) OR (to_id = $2 AND from_id = $1);",
+        [fromId, toId]
+    );
+};
+
+// Set friend request accepted
+
+exports.setFriendRequestAccepted = (fromId, toId) => {
+    return db.query(
+        "UPDATE friend_requests SET accepted=true WHERE to_id = $1 AND from_id = $2;",
+        [fromId, toId]
+    );
 };

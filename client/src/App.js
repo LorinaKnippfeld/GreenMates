@@ -7,6 +7,8 @@ import Uploader from "./Uploader.js";
 import ProfilePic from "./ProfilePic.js";
 import Profile from "./Profile.js";
 import OtherProfile from "./OtherProfile.js";
+import FindPeople from "./FindPeople.js";
+import Menu from "./Menu.js";
 
 export default class App extends React.Component {
     constructor() {
@@ -79,6 +81,8 @@ export default class App extends React.Component {
                         }}
                     />
                     <Route path="/users/:id" component={OtherProfile} />
+                    <Route path="/search" component={FindPeople} />
+                    <Route path="/" exact component={Menu} />
                 </BrowserRouter>
             </div>
         );

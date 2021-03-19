@@ -22,3 +22,14 @@ CREATE TABLE codes (
      );
      
      
+ CREATE TABLE IF EXISTS friend_requests;
+
+
+
+CREATE TABLE friend_requests (
+    id serial unique PRIMARY KEY ,
+    from_id INTEGER,
+    to_id INTEGER,
+    accepted boolean,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
