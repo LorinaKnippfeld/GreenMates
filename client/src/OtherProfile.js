@@ -3,6 +3,7 @@
 import React from "react";
 import axios from "./myAxios";
 import ProfilePic from "./ProfilePic.js";
+import FriendButton from "./FriendButton.js";
 
 // set up the class component
 
@@ -43,6 +44,8 @@ export default class OtherProfile extends React.Component {
                     <p>firstname = {user.firstname}</p>
                     <p>lastname = {user.lastname}</p>
                     <p>bio = {user.bio}</p>
+                    <br />
+                    {user.id && <FriendButton otherId={user.id} />}
                 </div>
             );
         }

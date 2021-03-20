@@ -21,10 +21,8 @@ CREATE TABLE codes (
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
      );
      
-     
- CREATE TABLE IF EXISTS friend_requests;
-
-
+/*     
+DROP TABLE IF EXISTS friend_requests;
 
 CREATE TABLE friend_requests (
     id serial unique PRIMARY KEY ,
@@ -33,3 +31,5 @@ CREATE TABLE friend_requests (
     accepted boolean,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+*/

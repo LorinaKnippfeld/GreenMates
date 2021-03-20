@@ -14,6 +14,7 @@ export default class Menu extends React.Component {
         return (
             <div className="menu">
                 <Link to="/search">Search other plantis</Link>
+                <Link to="/friends">Clicke here to see your friends</Link>
             </div>
         );
     }

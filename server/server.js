@@ -10,6 +10,7 @@ const path = require("path");
 const authRouter = require("./routes/auth.js");
 const resetRouter = require("./routes/reset.js");
 const profilesRouter = require("./routes/profiles.js");
+//const requestRouter = require("./routes/friend-requests.js");
 
 // Setup cookie stuff
 
@@ -48,6 +49,7 @@ app.use(compression());
 app.use(authRouter);
 app.use(resetRouter);
 app.use(profilesRouter);
+//app.use(requestRouter);
 
 // Redirect user based on login status
 

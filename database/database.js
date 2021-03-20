@@ -89,7 +89,7 @@ ORDER BY created_at DESC
 
 // Get a friend request
 
-exports.getFriendRequest = (fromId, toId) => {
+exports.getFriendRequest = (userId, otherId) => {
     return db.query(
         `
         SELECT *
@@ -99,13 +99,13 @@ exports.getFriendRequest = (fromId, toId) => {
         OR
             (from_id=$2 AND to_id=$1);
     `,
-        [fromId, toId]
+        [userId, otherId]
     );
 };
 
 // Add friend request
 
-exports.addFriendRequest = (fromId, toId) => {
+exports.addFriendRequest = (userId, otherId) => {
     return db.query(
         `INSERT INTO friend_requests 
             (from_id, to_id, accepted) 
@@ -114,24 +114,24 @@ exports.addFriendRequest = (fromId, toId) => {
         RETURNING 
             *
             `,
-        [fromId, toId]
+        [userId, otherId]
     );
 };
 
 // Delete friend request
 
-exports.deleteFriendRequest = (fromId, toId) => {
+exports.deleteFriendRequest = (userId, otherId) => {
     return db.query(
         "DELETE FROM friend_requests WHERE (to_id = $1 AND from_id = $2) OR (to_id = $2 AND from_id = $1);",
-        [fromId, toId]
+        [userId, otherId]
     );
 };
 
 // Set friend request accepted
 
-exports.setFriendRequestAccepted = (fromId, toId) => {
+exports.setFriendRequestAccepted = (userId, otherId) => {
     return db.query(
         "UPDATE friend_requests SET accepted=true WHERE to_id = $1 AND from_id = $2;",
-        [fromId, toId]
+        [userId, otherId]
     );
 };
