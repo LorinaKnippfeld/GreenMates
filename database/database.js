@@ -135,3 +135,20 @@ exports.setFriendRequestAccepted = (userId, otherId) => {
         [userId, otherId]
     );
 };
+
+// Get friend requests for overview friendlist
+
+exports.getFriends = (userId) => {
+    return db.query(
+        `
+    SELECT
+            users.id, firstname, lastname, profile_pic_url, accepted
+        FROM friend_requests
+        JOIN users
+            ON (from_id=users.id AND to_id=$1          AND accepted=false)
+            OR (from_id=users.id AND to_id=$1          AND accepted=true)
+            OR (from_id=$1        AND to_id=users.id   AND accepted=true);
+    `,
+        [userID]
+    );
+};

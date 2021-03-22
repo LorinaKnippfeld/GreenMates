@@ -1,7 +1,5 @@
 // setup axios & useState
 
-/*
-
 import { useState, useEffect } from "react";
 import axios from "./myAxios.js";
 
@@ -21,13 +19,14 @@ const ACTION_UNFRIEND = "unfriend";
 
 export default function FriendButton(props) {
     const { otherId } = props;
-    const [status, setStatus] = useState();
+    const [status, setStatus] = useState("");
 
     // useEffect to get the current state of my friendship
 
     useEffect(() => {
-        axios.get("api/friend-request/" + otherId).then((response) => {
+        axios.get("/api/friend-request/" + otherId).then((response) => {
             const { status } = response.data;
+            console.log("Friends get request works", response.data);
             setStatus(status);
         });
     }, []);
@@ -36,7 +35,7 @@ export default function FriendButton(props) {
 
     const sendAction = async (action) => {
         const response = await axios.post(
-            "api/friend-request/" + action + "/" + otherId
+            "/api/friend-request/" + action + "/" + otherId
         );
 
         const { newStatus } = response.data;
@@ -73,5 +72,3 @@ export default function FriendButton(props) {
         return <button> Planti </button>;
     }
 }
-
-*/

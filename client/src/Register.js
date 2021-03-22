@@ -66,9 +66,9 @@ export default class Register extends React.Component {
     render() {
         return (
             <div className="Register">
-                <h2>Please register my friend</h2>
+                <h2 className="registertext">Please register my friend</h2>
                 {this.state.error && (
-                    <div className="error">{this.state.error}</div>
+                    <div className="registererror">{this.state.error}</div>
                 )}
 
                 <form onSubmit={this.onSubmit}>

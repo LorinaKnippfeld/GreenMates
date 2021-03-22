@@ -39,7 +39,7 @@ export default class App extends React.Component {
             return <h1>Loading</h1>;
         }
         return (
-            <div>
+            <div className="app">
                 <ProfilePic
                     url={user.profile_pic_url}
                     clickHandler={() =>
@@ -84,7 +84,7 @@ export default class App extends React.Component {
                     <Route path="/users/:id" component={OtherProfile} />
                     <Route path="/search" component={FindPeople} />
                     <Route path="/" exact component={Menu} />
-                    <Route path="/friends" componente={FriendsAndWallabys} />
+                    <Route path="/friends" component={FriendsAndWallabys} />
                 </BrowserRouter>
             </div>
         );

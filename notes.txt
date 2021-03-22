@@ -1,1 +1,1 @@
-                    {user.id && <FriendButton otherId={user.id} />}
+               

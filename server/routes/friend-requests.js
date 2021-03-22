@@ -1,5 +1,4 @@
 // Routing & express setup:
-/*
 
 const express = require("express");
 const router = express.Router();
@@ -12,8 +11,8 @@ const STATUS_ACCEPTED = "request-accepted";
 const STATUS_REQUEST_MADE_BY_YOU = "request-made-by-you";
 const STATUS_REQUEST_MADE_TO_YOU = "request-made-to-you";
 
-router.get("/api/friend-request/:otherUserId", async (req, res) => {
-    console.log(request);
+router.get("/api/friend-request/:otherId", async (req, res) => {
+    console.log(req);
     const userId = req.session.user.id;
     const { otherId } = req.params;
 
@@ -42,8 +41,8 @@ const ACTION_CANCEL_REQUEST = "cancel";
 const ACTION_ACCEPT_REQUEST = "accept";
 const ACTION_UNFRIEND = "unfriend";
 
-router.post("/api/friend-request/:action/:otherUserId", async (req, res) => {
-    console.log(request);
+router.post("/api/friend-request/:action/:otherId", async (req, res) => {
+    console.log(req);
     const userId = req.session.user.id;
     const { otherId, action } = req.params;
 
@@ -74,5 +73,3 @@ router.post("/api/friend-request/:action/:otherUserId", async (req, res) => {
 });
 
 module.exports = router;
-
-*/

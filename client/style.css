@@ -1,3 +1,22 @@
-body {
-    background-color: ghostwhite;
+/* Welcome Component ------------------------------------------------- */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.welcome {
+    background-image: url("/Landingpage_Welcome_Site.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* App Component ------------------------------------------------- */
+
+.app {
+    background: purple;
 }
