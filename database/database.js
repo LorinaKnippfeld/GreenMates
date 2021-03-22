@@ -149,6 +149,6 @@ exports.getFriends = (userId) => {
             OR (from_id=users.id AND to_id=$1          AND accepted=true)
             OR (from_id=$1        AND to_id=users.id   AND accepted=true);
     `,
-        [userID]
+        [userId]
     );
 };

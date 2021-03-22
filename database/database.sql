@@ -32,3 +32,6 @@ CREATE TABLE friend_requests (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+INSERT INTO friend_requests (
+    from_id, to_id, accepted 
+) VALUES (24, 1, true), (38, 1, true), (55, 1, false), (66, 1, false); 

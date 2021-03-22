@@ -12,3 +12,20 @@ export const loadFriends = async () => {
         friends: friendList,
     };
 };
+
+export const acceptFriends = async (otherId) => {
+    const result = await axios.post("/api/friend-request/accept/" + otherId);
+    const acceptFriends = result.data;
+    return {
+        type: ACCEPT_FRIEND,
+        id: otherId,
+    };
+};
+
+export const unfriend = async (otherId) => {
+    const result = await axios.post("/api/friend-request/unfriend/" + otherId);
+    return {
+        type: UNFRIEND,
+        id: otherId,
+    };
+};

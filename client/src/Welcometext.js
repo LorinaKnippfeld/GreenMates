@@ -12,7 +12,7 @@ export default class Welcometext extends React.Component {
     render() {
         return (
             <div className="welcometext">
-                <p>Tets</p>
+                <p>Test</p>
             </div>
         );
     }

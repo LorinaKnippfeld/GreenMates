@@ -12,7 +12,6 @@ const STATUS_REQUEST_MADE_BY_YOU = "request-made-by-you";
 const STATUS_REQUEST_MADE_TO_YOU = "request-made-to-you";
 
 router.get("/api/friend-request/:otherId", async (req, res) => {
-    console.log(req);
     const userId = req.session.user.id;
     const { otherId } = req.params;
 
@@ -34,7 +33,7 @@ router.get("/api/friend-request/:otherId", async (req, res) => {
     }
 });
 
-// Post oute to create or change
+// Post route to create or change friend requests
 
 const ACTION_MAKE_REQUEST = "make-request";
 const ACTION_CANCEL_REQUEST = "cancel";
@@ -42,7 +41,6 @@ const ACTION_ACCEPT_REQUEST = "accept";
 const ACTION_UNFRIEND = "unfriend";
 
 router.post("/api/friend-request/:action/:otherId", async (req, res) => {
-    console.log(req);
     const userId = req.session.user.id;
     const { otherId, action } = req.params;
 
@@ -70,6 +68,14 @@ router.post("/api/friend-request/:action/:otherId", async (req, res) => {
         default:
             res.status(400).json({ error: "Action not recognized." });
     }
+});
+
+// Get friend list overview
+
+router.get("/api/friend-requests/friends", async (req, res) => {
+    const userId = req.session.user.id;
+    const result = await database.getFriends(userId);
+    res.json(result.rows);
 });
 
 module.exports = router;
