@@ -91,7 +91,10 @@ app.get("/logout", (request, response) => {
 
 const io = require("socket.io")(server, {
     allowRequest: (req, callback) =>
-        callback(null, req.headers.referer.startsWith("http://localhost:3000")),
+        callback(
+            null,
+            req.headers.referer.startsWith("https://planti-vz.herokuapp.com/")
+        ),
 });
 // Integrate cookie session
 
