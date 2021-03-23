@@ -39,7 +39,11 @@ export default class PasswordReset extends React.Component {
         axios
             .post("/api/resetcode", { email: this.state.email })
             .then((response) => {
-                this.setState({ step: 2 });
+                if (response.data.success === true) {
+                    this.setState({ step: 2 });
+                } else {
+                    console.log("User is not in database");
+                }
             })
             .catch((error) => {
                 console.log("Something went wrong with reset email", error);
@@ -89,8 +93,11 @@ export default class PasswordReset extends React.Component {
                             autoComplete="off"
                             onChange={(event) => this.handleChange(event)}
                         />
-                        <button onClick={() => this.startReset()}>
-                            Reset email
+                        <button
+                            className="resetpwbutton"
+                            onClick={() => this.startReset()}
+                        >
+                            Get reset email
                         </button>
                     </form>
                 </div>
@@ -121,7 +128,10 @@ export default class PasswordReset extends React.Component {
                             autoComplete="off"
                             onChange={(event) => this.handleChange(event)}
                         />
-                        <button onClick={() => this.setNewPassword()}>
+                        <button
+                            className="resetpwbutton"
+                            onClick={() => this.setNewPassword()}
+                        >
                             Create a new password
                         </button>
                     </form>

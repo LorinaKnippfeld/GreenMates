@@ -51,14 +51,19 @@ export default class Login extends React.Component {
 
     render() {
         return (
-            <div className="Login">
-                <h2>Please login</h2>
+            <div className="loginform">
+                <h2 className="logintext">
+                    Please login my dear plantifriend!
+                </h2>
+                <br></br>
                 {this.state.error && (
                     <div className="error">{this.state.error}</div>
                 )}
 
                 <form>
-                    <label htmlFor="email">Email</label>
+                    <label id="emaillabel" htmlFor="email">
+                        Email
+                    </label>
                     <input
                         type="email"
                         name="email"
@@ -66,8 +71,10 @@ export default class Login extends React.Component {
                         autoComplete="off"
                         onChange={(event) => this.handleChange(event)}
                     />
-
-                    <label htmlFor="password">Password</label>
+                    <br></br>
+                    <label id="pwlabel" htmlFor="password">
+                        Password
+                    </label>
                     <input
                         type="password"
                         name="password"
@@ -76,15 +83,25 @@ export default class Login extends React.Component {
                         onChange={(event) => this.handleChange(event)}
                     />
 
-                    <button onClick={() => this.submit()}>Login</button>
+                    <button
+                        className="loginbutton"
+                        onClick={() => this.submit()}
+                    >
+                        Login
+                    </button>
                 </form>
+                <br></br>
+                <p className="notregistered">Not registered yet?</p>
+                <Link id="registerhere" to="/register">
+                    Register here
+                </Link>
+                <br></br>
+                <br></br>
+                <p className="forgottenpw"> Forgotten your password? </p>
 
-                <p>
-                    "Not registered yet?"
-                    <Link to="/">Register here</Link>
-                    "Forgotten your password?"
-                    <Link to="/passwordreset">Reset your password here</Link>
-                </p>
+                <Link id="resethere" to="/passwordreset">
+                    Reset your password here
+                </Link>
             </div>
         );
     }

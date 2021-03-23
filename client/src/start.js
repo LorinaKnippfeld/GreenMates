@@ -40,8 +40,6 @@ export const init = (store) => {
     }
 };
 
-init(store);
-
 // import custom components
 
 import Welcome from "./Welcome.js";
@@ -52,6 +50,7 @@ import App from "./App.js";
 if (location.pathname === "/welcome") {
     ReactDOM.render(<Welcome />, document.querySelector("main"));
 } else {
+    init(store);
     let provider = (
         <Provider store={store}>
             <App />
