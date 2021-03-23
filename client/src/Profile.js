@@ -3,6 +3,7 @@
 import React from "react";
 import ProfilePic from "./ProfilePic.js";
 import BioEditor from "./BioEditor";
+import { Link } from "react-router-dom";
 
 // set up the class component
 
@@ -15,13 +16,14 @@ export default class Profile extends React.Component {
         return (
             <div className="Profile">
                 <ProfilePic
-                    profile_pic_url={this.props.profile_pic_url}
+                    url={this.props.url}
                     clickHandler={this.props.clickHandler}
                 />
                 <BioEditor
                     bio={this.props.bio}
                     saveHandler={this.props.bioEditor}
                 />
+                <Link to="/">Click here to go back to your profile page</Link>
             </div>
         );
     }

@@ -61,7 +61,7 @@ export default class App extends React.Component {
 
                 <BrowserRouter>
                     <Route
-                        path="/user/"
+                        path="/user"
                         render={() => {
                             return (
                                 <Profile

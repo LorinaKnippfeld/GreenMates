@@ -69,9 +69,9 @@ exports.updatePhoto = (id, profile_pic_url) => {
 
 // Update bio
 
-exports.updateBio = (email, bio) => {
-    return db.query(`UPDATE users SET bio = $2 WHERE email = $1 RETURNING *`, [
-        email,
+exports.updateBio = (id, bio) => {
+    return db.query(`UPDATE users SET bio = $2 WHERE id = $1 RETURNING *`, [
+        id,
         bio,
     ]);
 };

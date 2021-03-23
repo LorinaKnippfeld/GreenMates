@@ -102,12 +102,16 @@
     height: 20px;
     width: 200px;
     font-family: "Luminari";
+    position: relative;
+    left: 30px;
 }
 
 #password {
     height: 20px;
     width: 200px;
     font-family: "Luminari";
+    position: relative;
+    left: 10px;
 }
 
 #pwlabel {
@@ -116,6 +120,7 @@
 
 #emaillabel {
     font-size: 25px;
+    position: relative;
 }
 
 .notregistered {
@@ -216,7 +221,7 @@
     outline: none;
     border: none;
     background-color: var(--light);
-    width: 100px;
+    width: 300px;
     height: 30px;
     border-radius: 30px;
     font-size: 1.5rem;
@@ -228,6 +233,9 @@
     position: relative;
     left: 200px;
     top: 20px;
+    position: relative;
+    left: 50px;
+    top: 30px;
 }
 
 .resetpwbutton:hover {
@@ -248,7 +256,52 @@
     animation: background 3s linear infinite;
 }
 
-/* Register Component -------------------------------------------- */
+#pwresetform {
+    text-align: center;
+    height: 30px;
+    width: 300px;
+    position: absolute;
+    right: 280px;
+    top: 400px;
+}
+
+.requestpwcode {
+    position: absolute;
+    text-align: center;
+    right: 150px;
+    top: 250px;
+    height: 100px;
+    width: 500px;
+}
+
+.resetmaillabel {
+    font-size: 25px;
+    position: realtive;
+    right: 530px;
+    top: 370px;
+}
+
+.resetmailinput {
+    position: relative;
+}
+
+.insertpwcode {
+    text-align: center;
+    height: 30px;
+    width: 300px;
+    position: absolute;
+    right: 280px;
+    top: 250px;
+}
+
+/* Register Component -------------------------------------------- 
+
+
+.
+
+
+
+*/
 
 /* App Component ------------------------------------------------- */
 

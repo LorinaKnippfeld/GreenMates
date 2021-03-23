@@ -78,15 +78,21 @@ export default class PasswordReset extends React.Component {
     render() {
         if (this.state.step === 1) {
             return (
-                <div className="requestpwcode">
-                    <h2>Please provide your email address</h2>
+                <div>
+                    <h2 className="requestpwcode">
+                        Please provide your email address so we can sent you a
+                        reset code (very cool)
+                    </h2>
                     {this.state.error && (
                         <div className="error">{this.state.error}</div>
                     )}
 
-                    <form onSubmit={this.onSubmit}>
-                        <label htmlFor="email">Email</label>
+                    <form id="pwresetform" onSubmit={this.onSubmit}>
+                        <label className="resetmaillabel" htmlFor="email">
+                            Email
+                        </label>
                         <input
+                            className="resetmailinput"
                             type="email"
                             name="email"
                             id="email"
@@ -97,7 +103,7 @@ export default class PasswordReset extends React.Component {
                             className="resetpwbutton"
                             onClick={() => this.startReset()}
                         >
-                            Get reset email
+                            Get reset code
                         </button>
                     </form>
                 </div>
@@ -106,22 +112,30 @@ export default class PasswordReset extends React.Component {
         if (this.state.step === 2) {
             return (
                 <div className="insertpwcode">
-                    <h2>Check your inbox in order to reset your password</h2>
+                    <h2 className="checkinbox">
+                        Check your inbox in order to reset your password
+                    </h2>
                     {this.state.error && (
                         <div className="error">{this.state.error}</div>
                     )}
 
                     <form onSubmit={this.onSubmit}>
-                        <label htmlFor="secretcode">Secret Code</label>
+                        <label className="secretCode" htmlFor="secretcode">
+                            Secret Code
+                        </label>
                         <input
+                            className="inputSecretCode"
                             type="secretcode"
                             name="secretcode"
                             id="secretcode"
                             autoComplete="off"
                             onChange={(event) => this.handleChange(event)}
                         />
-                        <label htmlFor="newPassword">New password</label>
+                        <label className="newPassword" htmlFor="newPassword">
+                            New password
+                        </label>
                         <input
+                            className="inputNewPassword"
                             type="newPassword"
                             name="newPassword"
                             id="newPassword"

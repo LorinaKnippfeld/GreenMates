@@ -19,10 +19,12 @@ export default class BioEditor extends React.Component {
         this.setState({ [event.target.name]: event.target.value });
     }
 
-    saveBio() {
-        axios.post("/api/user/bio", { bio: this.state.draft });
+    async saveBio() {
+        const response = await axios.post("/api/user/bio", {
+            bio: this.state.draft,
+        });
         this.setState({ isEditing: false });
-        this.props.saveHandler(this.state.draft);
+        this.props.saveHandler(response.data.bio.bio);
     }
 
     render() {

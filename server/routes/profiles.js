@@ -79,14 +79,16 @@ router.post(
 // Route for updating the bio
 
 router.post("/api/user/bio", (request, response) => {
-    const email = request.session.user.email;
+    const id = request.session.user.id;
     const bio = request.body.bio;
+    console.log(id, bio);
     database
-        .updateBio(email, bio)
+        .updateBio(id, bio)
         .then((result) => {
+            console.log(result);
             response.json({
                 success: true,
-                result,
+                bio: result.rows[0],
             });
         })
         .catch((error) => {
