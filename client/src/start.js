@@ -10,12 +10,37 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import reduxPromise from "redux-promise";
 import reducer from "./reducers.js";
 
+// setup socket.io
+
+import { chatMessages, chatMessage } from "./actions.js";
+import { io } from "socket.io-client";
+
 // setup store
 
 const store = createStore(
     reducer,
     composeWithDevTools(applyMiddleware(reduxPromise))
 );
+
+// socket.io
+
+export let socket;
+
+export const init = (store) => {
+    if (!socket) {
+        socket = io.connect();
+
+        socket.on("chatMessages", (messages) =>
+            store.dispatch(chatMessages(messages))
+        );
+
+        socket.on("chatMessage", (message) =>
+            store.dispatch(chatMessage(message))
+        );
+    }
+};
+
+init(store);
 
 // import custom components
 

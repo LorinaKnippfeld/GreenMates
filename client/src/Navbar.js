@@ -13,8 +13,12 @@ export default class Navbar extends React.Component {
     render() {
         return (
             <div className="navbar">
-                <Link to="/login">Login</Link>
-                <Link to="/register">Register</Link>
+                <Link to="/login" className="loginpath">
+                    Login
+                </Link>
+                <Link to="/register" className="registerpath">
+                    Register
+                </Link>
             </div>
         );
     }

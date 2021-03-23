@@ -11,7 +11,8 @@ import Welcometext from "./Welcometext.js";
 export default function Welcome() {
     return (
         <div className="welcome">
-            <h1 className="welcometext">Welcome!</h1>
+            <div className="logo"></div>
+            <h1 className="welcomeheadline">Welcome to Planti-Vz!</h1>
             <HashRouter>
                 <div>
                     <Navbar />

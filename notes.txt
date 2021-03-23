@@ -1,1 +1,1 @@
-               
+try & catch in server.js einfügen!

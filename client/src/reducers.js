@@ -1,6 +1,14 @@
-import { LOAD_FRIENDS, ACCEPT_FRIEND, UNFRIEND } from "./actions.js";
+import {
+    LOAD_FRIENDS,
+    ACCEPT_FRIEND,
+    UNFRIEND,
+    ACTION_CHAT_MESSAGE,
+    CHAT_MESSAGES,
+} from "./actions.js";
 
-export default function (state = {}, action) {
+// Friend button on friendlist
+
+export default function (state = { messages: [] }, action) {
     if (action.type == LOAD_FRIENDS) {
         state = {
             ...state,
@@ -30,6 +38,22 @@ export default function (state = {}, action) {
                     return true;
                 }
             }),
+        };
+    }
+
+    // Chat messages
+
+    if (action.type == ACTION_CHAT_MESSAGE) {
+        state = {
+            ...state,
+            messages: [...state.messages, ...action.messages],
+        };
+    }
+
+    if (action.type == CHAT_MESSAGES) {
+        state = {
+            ...state,
+            messages: action.messages,
         };
     }
 

@@ -1,8 +1,12 @@
 import axios from "./myAxios.js";
 
+// friend button fun
+
 export const LOAD_FRIENDS = "load friends";
 export const ACCEPT_FRIEND = "accept friend";
 export const UNFRIEND = "unfriend friend";
+export const ACTION_CHAT_MESSAGE = "chat message";
+export const CHAT_MESSAGES = "chat messages";
 
 export const loadFriends = async () => {
     const result = await axios.get("/api/friend-requests/friends");
@@ -27,5 +31,21 @@ export const unfriend = async (otherId) => {
     return {
         type: UNFRIEND,
         id: otherId,
+    };
+};
+
+// Chat messages
+
+export async function chatMessages(messages) {
+    return {
+        type: CHAT_MESSAGES,
+        messages,
+    };
+}
+
+export const chatMessage = async (message) => {
+    return {
+        type: ACTION_CHAT_MESSAGE,
+        messages: message,
     };
 };

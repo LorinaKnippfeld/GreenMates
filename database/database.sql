@@ -1,5 +1,9 @@
 
+DROP TABLE IF EXISTS codes;
+DROP TABLE IF EXISTS friend_requests;
+DROP TABLE IF EXISTS chat_messages;
 DROP TABLE IF EXISTS users; 
+
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY, 
@@ -12,7 +16,6 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-DROP TABLE IF EXISTS codes;
 
 CREATE TABLE codes (
         id SERIAL UNIQUE PRIMARY KEY,
@@ -22,16 +25,27 @@ CREATE TABLE codes (
      );
      
  
-DROP TABLE IF EXISTS friend_requests;
 
 CREATE TABLE friend_requests (
-    id serial unique PRIMARY KEY,
+    id SERIAL UNIQUE PRIMARY KEY,
     from_id INTEGER,
     to_id INTEGER,
-    accepted boolean,
+    accepted BOOLEAN,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-INSERT INTO friend_requests (
-    from_id, to_id, accepted 
-) VALUES (24, 1, true), (38, 1, true), (55, 1, false), (66, 1, false); 
+
+CREATE TABLE chat_messages (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id) NOT NULL, 
+    message_text TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+); 
+
+INSERT INTO chat_messages (user_id, message_text)
+VALUES
+(1,'I am all natural'),
+(2,'What is your secret'),
+(1,'I only consume eggshells and coffee grounds'),
+(2,'Wow'),
+(4,'Sounds great I whish I could try it');
