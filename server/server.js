@@ -93,7 +93,11 @@ const io = require("socket.io")(server, {
     allowRequest: (req, callback) =>
         callback(
             null,
-            req.headers.referer.startsWith("https://planti-vz.herokuapp.com/")
+            req.headers.referer.startsWith(
+                process.env.NODE_ENV === "production"
+                    ? "https://planti-vz.herokuapp.com/"
+                    : "http://localhost:3000"
+            )
         ),
 });
 // Integrate cookie session
