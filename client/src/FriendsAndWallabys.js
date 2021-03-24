@@ -36,7 +36,10 @@ export default function FriendsAndWallabys(props) {
                     return (
                         <div key={wallaby.id} className="wallaby">
                             <Link to={"/user/" + wallaby.id}></Link>
-                            <img src={wallaby.profile_pic_url} />
+                            <img
+                                className="wallabyPicture"
+                                src={wallaby.profile_pic_url}
+                            />
                             {wallaby.firstname} {wallaby.lastname}
                             <button
                                 onClick={(e) =>
@@ -54,9 +57,12 @@ export default function FriendsAndWallabys(props) {
             {friends &&
                 friends.map((friend) => {
                     return (
-                        <div key={friend.firstname} className="friend">
+                        <div className="friendList" key={friend.firstname}>
                             <Link to={"/user/" + friend.id}></Link>
-                            <img src={friend.profile_pic_url} />
+                            <img
+                                className="friendPicture"
+                                src={friend.profile_pic_url}
+                            />
                             {friend.firstname}
                             {friend.lastname}
                             <button

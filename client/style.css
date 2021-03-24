@@ -678,3 +678,52 @@
 .uploaderText {
     font-size: 20px;
 }
+
+/* Chat Component -------------------------------------------- */
+
+.chat {
+    background-image: url("/chat_background.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 1920px;
+    height: 1080px;
+}
+
+.chatPic {
+    width: 100px;
+    height: 100px;
+    float: right;
+}
+
+.chatMessage {
+    float: right;
+}
+
+.chatPerson {
+    float: right;
+}
+
+/* Other people -------------------------------------------- */
+
+.overview {
+    background-image: url("/chat_background.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 1920px;
+    height: 1080px;
+}
+
+.wallabyPicture {
+    width: 100px;
+    height: 100px;
+}
+
+.friendPicture {
+    width: 100px;
+    height: 100px;
+    float: right;
+}
+
+.friendList {
+    float: right;
+}

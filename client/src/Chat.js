@@ -39,11 +39,11 @@ export default function Chat() {
 function Message(props) {
     return (
         <div className="Message">
-            <img src={props.profile_pic_url} />
-            <span>
+            <img className="chatPic" src={props.profile_pic_url} />
+            <span className="chatPerson">
                 {props.firstname} {props.lastname}
             </span>
-            <strong>{props.message_text}</strong>
+            <strong className="chatMessage">{props.message_text}</strong>
         </div>
     );
 }
