@@ -42,7 +42,7 @@ export default class PasswordReset extends React.Component {
                 if (response.data.success === true) {
                     this.setState({ step: 2 });
                 } else {
-                    console.log("User is not in database");
+                    console.log("User is not in database", response.data.error);
                 }
             })
             .catch((error) => {

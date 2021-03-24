@@ -41,24 +41,25 @@ export default class App extends React.Component {
         }
         return (
             <div className="app">
-                <ProfilePic
-                    url={user.profile_pic_url}
-                    clickHandler={() =>
-                        this.setState({ uploaderVisible: true })
-                    }
-                />
-                {uploaderVisible && (
-                    <Uploader
+                <div className="appProfilePic">
+                    <ProfilePic
                         url={user.profile_pic_url}
-                        userHandler={(user) =>
-                            this.setState({ user, uploaderVisible: false })
+                        clickHandler={() =>
+                            this.setState({ uploaderVisible: true })
                         }
-                        closeHandler={() => {
-                            this.setState({ uploaderVisible: false });
-                        }}
                     />
-                )}
-
+                    {uploaderVisible && (
+                        <Uploader
+                            url={user.profile_pic_url}
+                            userHandler={(user) =>
+                                this.setState({ user, uploaderVisible: false })
+                            }
+                            closeHandler={() => {
+                                this.setState({ uploaderVisible: false });
+                            }}
+                        />
+                    )}
+                </div>
                 <BrowserRouter>
                     <Route
                         path="/user"

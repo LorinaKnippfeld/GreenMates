@@ -40,8 +40,8 @@ export default class OtherProfile extends React.Component {
             );
         } else {
             return (
-                <div className="OtherUser">
-                    <ProfilePic profile_pic_url={user.profile_pic_url} />
+                <div className="otherUser">
+                    <ProfilePic url={user.profile_pic_url} />
                     <p>firstname = {user.firstname}</p>
                     <p>lastname = {user.lastname}</p>
                     <p>bio = {user.bio}</p>

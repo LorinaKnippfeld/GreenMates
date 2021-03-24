@@ -26,7 +26,7 @@ router.post("/api/resetcode", (request, response) => {
         database
             .getUserByEmail(email)
             .then((result) => {
-                if (result.row.length > 0) {
+                if (result.rows.length > 0) {
                     const secretcode = cryptoRandomString({
                         length: 8,
                     });
@@ -41,19 +41,20 @@ router.post("/api/resetcode", (request, response) => {
                                         success: true,
                                     });
                                 })
-                                .catch(() =>
+                                .catch((error) => {
+                                    console.log(error);
                                     response.json({
                                         success: false,
                                         error:
                                             "Unfortunately we could not send you an email. Please try again or check your email account",
-                                    })
-                                );
+                                    });
+                                });
                         })
                         .catch((error) => {
                             console.log("Could not get reset code", error);
                         });
                 } else {
-                    console.log("User is not in database");
+                    console.log("User is not in database :(");
                     return response.json({
                         success: false,
                         error: "Please try again",
