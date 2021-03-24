@@ -26,7 +26,7 @@ router.post("/api/resetcode", (request, response) => {
         database
             .getUserByEmail(email)
             .then((result) => {
-                if (result.rows.length > 0) {
+                if (result.row.length > 0) {
                     const secretcode = cryptoRandomString({
                         length: 8,
                     });

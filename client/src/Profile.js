@@ -23,7 +23,9 @@ export default class Profile extends React.Component {
                     bio={this.props.bio}
                     saveHandler={this.props.bioEditor}
                 />
-                <Link to="/">Click here to go back to your profile page</Link>
+                <Link className="linkHomeSearch" to="/">
+                    Back
+                </Link>
             </div>
         );
     }

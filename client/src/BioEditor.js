@@ -35,13 +35,20 @@ export default class BioEditor extends React.Component {
             return (
                 <div className="bioEditor">
                     <textarea
+                        className="textarea"
                         name="draft"
                         onChange={(event) => this.handleChange(event)}
                     ></textarea>
-                    <button onClick={() => this.saveBio()}>
+                    <button
+                        className="bioButtonOne"
+                        onClick={() => this.saveBio()}
+                    >
                         Save your bio
                     </button>
-                    <button onClick={() => this.setState({ isEditing: false })}>
+                    <button
+                        className="closeBio"
+                        onClick={() => this.setState({ isEditing: false })}
+                    >
                         x
                     </button>
                 </div>
@@ -49,9 +56,12 @@ export default class BioEditor extends React.Component {
         } else {
             return (
                 <div>
-                    {bio && <p>{bio}</p>}
-                    <button onClick={() => this.setState({ isEditing: true })}>
-                        {bio ? "edit" : "add bio"}
+                    {bio && <p className="bioResult">{bio}</p>}
+                    <button
+                        className="bioButtonTwo"
+                        onClick={() => this.setState({ isEditing: true })}
+                    >
+                        {bio ? "edit bio" : "add bio"}
                     </button>
                 </div>
             );

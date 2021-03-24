@@ -65,14 +65,16 @@ export default class Register extends React.Component {
 
     render() {
         return (
-            <div className="Register">
-                <h2 className="registertext">Please register my friend</h2>
+            <div className="registerform">
+                <h2 className="registertext">Please register my friend!</h2>
                 {this.state.error && (
                     <div className="registererror">{this.state.error}</div>
                 )}
-
+                <br></br>
                 <form onSubmit={this.onSubmit}>
-                    <label htmlFor="firstname">Firstname</label>
+                    <label className="firstnamelabel" htmlFor="firstname">
+                        Firstname
+                    </label>
                     <input
                         type="text"
                         name="firstname"
@@ -80,8 +82,10 @@ export default class Register extends React.Component {
                         autoComplete="off"
                         onChange={(event) => this.handleChange(event)}
                     />
-
-                    <label htmlFor="lastname">Lastname</label>
+                    <br></br>
+                    <label className="lastnamelabel" htmlFor="lastname">
+                        Lastname
+                    </label>
                     <input
                         type="text"
                         name="lastname"
@@ -89,8 +93,10 @@ export default class Register extends React.Component {
                         autoComplete="off"
                         onChange={(event) => this.handleChange(event)}
                     />
-
-                    <label htmlFor="email">Email</label>
+                    <br></br>
+                    <label className="emaillabel" htmlFor="email">
+                        Email
+                    </label>
                     <input
                         type="email"
                         name="email"
@@ -98,8 +104,10 @@ export default class Register extends React.Component {
                         autoComplete="off"
                         onChange={(event) => this.handleChange(event)}
                     />
-
-                    <label htmlFor="password">Password</label>
+                    <br></br>
+                    <label className="pwlabel" htmlFor="password">
+                        Password
+                    </label>
                     <input
                         type="password"
                         name="password"
@@ -108,12 +116,20 @@ export default class Register extends React.Component {
                         onChange={(event) => this.handleChange(event)}
                     />
 
-                    <button onClick={() => this.submit()}>Register</button>
+                    <button
+                        className="registerbutton"
+                        onClick={() => this.submit()}
+                    >
+                        Register
+                    </button>
                 </form>
-
-                <p>
+                <br></br>
+                <p className="alreadyRegistered">
                     {"Already registerd?"}
-                    <Link to="/login">Please login here.</Link>
+                    <br></br>
+                    <Link className="loginpathreg" to="/login">
+                        Please login here
+                    </Link>
                 </p>
             </div>
         );

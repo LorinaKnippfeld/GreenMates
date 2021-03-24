@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { socket } from "./start.js";
+import { Link } from "react-router-dom";
 
 export default function Chat() {
     const dispatch = useDispatch();
@@ -28,6 +29,9 @@ export default function Chat() {
                 />
                 <button onClick={(e) => handleButtonOnClick()}>Send</button>
             </div>
+            <Link className="linkHomeSearch" to="/">
+                Back
+            </Link>
         </div>
     );
 }

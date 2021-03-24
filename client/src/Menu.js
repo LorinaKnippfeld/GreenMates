@@ -12,11 +12,26 @@ export default class Menu extends React.Component {
 
     render() {
         return (
-            <div className="menu">
-                <Link to="/search">Search other plantis</Link>
-                <Link to="/friends">Clicke here to see your friends</Link>
-                <Link to="/chat">Click here for planti feed</Link>
-                <Link to="/user">Click here to edit your profile</Link>
+            <div className="homeText">
+                Home
+                <div className="menu">
+                    <Link id="searchLink" to="/search">
+                        Search
+                    </Link>
+                    <br></br>
+                    <br></br>
+                    <Link id="seeFriendsLink" to="/friends">
+                        friends
+                    </Link>
+                    <br></br> <br></br>
+                    <Link id="plantiFeedLink" to="/chat">
+                        feed
+                    </Link>
+                    <br></br> <br></br>{" "}
+                    <Link id="editProfileLink" to="/user">
+                        profile
+                    </Link>
+                </div>
             </div>
         );
     }

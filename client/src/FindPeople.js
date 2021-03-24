@@ -34,18 +34,20 @@ export default function FindPeople() {
 
     return (
         <div>
-            <label htmlFor="user-search">Search Plantis:</label>
+            <label className="searchPlanti" htmlFor="user-search">
+                Search Plantis:
+            </label>
             <input
+                className="plantiSearch"
                 id="search"
                 type="text"
                 onChange={(event) => {
                     setQuery(event.target.value);
                 }}
-                className="profile-search-input"
             />
             <div>
                 {users.map((users, index) => (
-                    <div key={index} className="profile-search-results">
+                    <div key={index} id="searchResults">
                         <Link to={"/users/" + users.id}>
                             <p>
                                 {users.firstname} {users.lastname}
@@ -53,8 +55,13 @@ export default function FindPeople() {
                         </Link>
                     </div>
                 ))}
-                {!users.length && query && <li>Sorry. Nothing found.</li>}
+                {!users.length && query && (
+                    <p id="searchError">Sorry. Nothing found.</p>
+                )}
             </div>
+            <Link className="linkHomeSearch" to="/">
+                Back
+            </Link>
         </div>
     );
 }

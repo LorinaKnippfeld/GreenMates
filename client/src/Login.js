@@ -61,7 +61,7 @@ export default class Login extends React.Component {
                 )}
 
                 <form>
-                    <label id="emaillabel" htmlFor="email">
+                    <label className="emaillabel" htmlFor="email">
                         Email
                     </label>
                     <input
@@ -72,7 +72,7 @@ export default class Login extends React.Component {
                         onChange={(event) => this.handleChange(event)}
                     />
                     <br></br>
-                    <label id="pwlabel" htmlFor="password">
+                    <label className="pwlabel" htmlFor="password">
                         Password
                     </label>
                     <input
@@ -99,7 +99,7 @@ export default class Login extends React.Component {
                 <br></br>
                 <p className="forgottenpw"> Forgotten your password? </p>
 
-                <Link id="resethere" to="/passwordreset">
+                <Link className="resethere" to="/passwordreset">
                     Reset your password here
                 </Link>
             </div>

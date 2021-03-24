@@ -45,12 +45,14 @@ export default class Uploader extends React.Component {
                 >
                     X
                 </div>
-                <p>Click here to upload your profile picture</p>
+                <p className="uploaderText">Upload profile picture</p>
                 <input
                     type="file"
                     onChange={(event) => this.handleFileChange(event)}
                 />
+                <br></br>
                 <button
+                    className="uploaderButton"
                     onClick={() => {
                         this.uploadPicture();
                         this.props.closeHandler();

@@ -114,11 +114,11 @@
     left: 10px;
 }
 
-#pwlabel {
+.pwlabel {
     font-size: 25px;
 }
 
-#emaillabel {
+.emaillabel {
     font-size: 25px;
     position: relative;
 }
@@ -144,16 +144,16 @@
     color: black;
 }
 
-#resethere:visited {
+.resethere:visited {
     color: black;
 }
 
-#resethere:hover {
+.resethere:hover {
     color: #71a03f;
     text-shadow: none;
 }
 
-#resethere:before {
+.resethere:before {
     color: black;
 }
 
@@ -231,11 +231,8 @@
     box-shadow: 0 0 0 7px var(--light) inset;
     margin-bottom: 15px;
     position: relative;
-    left: 200px;
+    left: 20px;
     top: 20px;
-    position: relative;
-    left: 50px;
-    top: 30px;
 }
 
 .resetpwbutton:hover {
@@ -294,17 +291,390 @@
     top: 250px;
 }
 
-/* Register Component -------------------------------------------- 
+/* Register Component -------------------------------------------- */
 
+.registerform {
+    text-align: center;
+    height: 200px;
+    width: 500px;
+    position: absolute;
+    right: 120px;
+    top: 270px;
+}
 
-.
+.registertext {
+    font-size: 35px;
+}
 
+.registerbutton {
+    font-family: "The_Bloom_Pen";
+    display: block;
+    outline: none;
+    border: none;
+    background-color: var(--light);
+    width: 300px;
+    height: 30px;
+    border-radius: 30px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text);
+    background-size: 100% 100%;
+    box-shadow: 0 0 0 7px var(--light) inset;
+    margin-bottom: 15px;
+    position: relative;
+    left: 100px;
+    top: 20px;
+}
 
+.registerbutton:hover {
+    font-family: "The_Bloom_Pen";
+    background-image: linear-gradient(
+        145deg,
+        transparent 10%,
+        var(--dark) 10% 20%,
+        transparent 20% 30%,
+        var(--dark) 30% 40%,
+        transparent 40% 50%,
+        var(--dark) 50% 60%,
+        transparent 60% 70%,
+        var(--dark) 70% 80%,
+        transparent 80% 90%,
+        var(--dark) 90% 100%
+    );
+    animation: background 3s linear infinite;
+}
 
-*/
+.firstnamelabel {
+    font-size: 25px;
+}
+
+.lastnamelabel {
+    font-size: 25px;
+}
+
+#lastname {
+    height: 20px;
+    width: 200px;
+    position: relative;
+    left: 10px;
+}
+
+#firstname {
+    height: 20px;
+    width: 200px;
+    position: relative;
+    left: 5px;
+}
+
+.alreadyRegistered {
+    font-size: 30px;
+}
+
+.loginpathreg {
+    font-size: 22px;
+}
+
+.loginpathreg:visited {
+    color: black;
+    text-shadow: none;
+}
+
+.loginpathreg:hover {
+    color: #71a03f;
+    text-shadow: none;
+}
+
+.loginpathreg:before {
+    color: black;
+}
 
 /* App Component ------------------------------------------------- */
 
 .app {
-    background: purple;
+    background: lightblue;
+}
+
+/* ProfilePic Component -------------------------------------------- */
+
+.homeText {
+    font-size: 90px;
+    position: relative;
+    left: 218px;
+    top: 40px;
+    width: 200px;
+}
+
+.profilePic {
+    height: 370px;
+    width: 300px;
+    position: absolute;
+    left: 160px;
+    top: 150px;
+    border: 5px solid black;
+    border-radius: 50px;
+}
+
+.app {
+    background-image: url("/Landingpage_App.png");
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+    width: 100vw;
+    font-family: "The_Bloom_Pen";
+    text-shadow: 1px 1px 1px #7a7a7a;
+}
+
+/* Menu Component -------------------------------------------- */
+
+.menu {
+    font-size: 35px;
+    position: absolute;
+    left: 32px;
+    top: 500px;
+    text-align: center;
+}
+
+#searchLink:hover {
+    color: green;
+}
+#seeFriendsLink:hover {
+    color: green;
+}
+#plantiFeedLink:hover {
+    color: green;
+}
+#editProfileLink:hover {
+    color: green;
+}
+
+#searchLink:visited {
+    color: black;
+}
+#seeFriendsLink:visited {
+    color: black;
+}
+#plantiFeedLink:visited {
+    color: black;
+}
+#editProfileLink:visited {
+    color: black;
+}
+
+#searchLink:visited:hover {
+    color: green;
+}
+#seeFriendsLink:visited:hover {
+    color: green;
+}
+#plantiFeedLink:visited:hover {
+    color: green;
+}
+#editProfileLink:visited:hover {
+    color: green;
+}
+
+/* Search Component -------------------------------------------- */
+
+.searchPlanti {
+    position: absolute;
+    left: 185px;
+    top: 550px;
+    font-size: 35px;
+}
+
+.plantiSearch {
+    position: relative;
+    left: 200px;
+    top: 600px;
+    width: 200px;
+    height: 30px;
+}
+
+.linkHomeSearch {
+    position: absolute;
+    left: 50px;
+    top: 300px;
+    font-size: 35px;
+}
+
+.linkHomeSearch:hover {
+    color: green;
+}
+
+.linkHomeSearch:visited {
+    color: black;
+}
+
+.linkHomeSearch:visited:hover {
+    color: green;
+}
+
+#searchResults {
+    position: absolute;
+    left: 220px;
+    top: 640px;
+    font-style: 30px;
+    width: 200px;
+}
+
+#searchError {
+    position: relative;
+    left: 210px;
+    top: 630px;
+    font-style: 30px;
+    width: 200px;
+}
+
+.searchHeading {
+    font-size: 80px;
+    position: relative;
+    left: 218px;
+    top: 40px;
+    width: 200px;
+}
+
+/* Profile Component -------------------------------------------- */
+
+.bioButtonOne {
+    font-family: "The_Bloom_Pen";
+    display: block;
+    outline: none;
+    border: none;
+    background-color: var(--light);
+    width: 300px;
+    height: 30px;
+    border-radius: 30px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text);
+    background-size: 100% 100%;
+    box-shadow: 0 0 0 7px var(--light) inset;
+    margin-bottom: 15px;
+    position: absolute;
+    top: 550px;
+    left: 160px;
+}
+
+.bioButtonOne:hover {
+    font-family: "The_Bloom_Pen";
+    background-image: linear-gradient(
+        145deg,
+        transparent 10%,
+        var(--dark) 10% 20%,
+        transparent 20% 30%,
+        var(--dark) 30% 40%,
+        transparent 40% 50%,
+        var(--dark) 50% 60%,
+        transparent 60% 70%,
+        var(--dark) 70% 80%,
+        transparent 80% 90%,
+        var(--dark) 90% 100%
+    );
+    animation: background 3s linear infinite;
+}
+
+.bioButtonTwo {
+    font-family: "The_Bloom_Pen";
+    display: block;
+    outline: none;
+    border: none;
+    background-color: var(--light);
+    width: 300px;
+    height: 30px;
+    border-radius: 30px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text);
+    background-size: 100% 100%;
+    box-shadow: 0 0 0 7px var(--light) inset;
+    margin-bottom: 15px;
+    position: absolute;
+    top: 550px;
+    left: 160px;
+}
+
+.bioButtonTwo:hover {
+    font-family: "The_Bloom_Pen";
+    background-image: linear-gradient(
+        145deg,
+        transparent 10%,
+        var(--dark) 10% 20%,
+        transparent 20% 30%,
+        var(--dark) 30% 40%,
+        transparent 40% 50%,
+        var(--dark) 50% 60%,
+        transparent 60% 70%,
+        var(--dark) 70% 80%,
+        transparent 80% 90%,
+        var(--dark) 90% 100%
+    );
+    animation: background 3s linear infinite;
+}
+
+.textarea {
+    position: absolute;
+    top: 600px;
+    left: 160px;
+    width: 300px;
+    height: 150px;
+}
+
+.closeBio {
+    position: absolute;
+    top: 600px;
+    left: 150px;
+}
+
+.bioResult {
+    position: absolute;
+    top: 620px;
+    left: 160px;
+    width: 300px;
+    text-align: center;
+    font-size: 30px;
+}
+
+#uploader {
+    position: absolute;
+    top: 420px;
+    left: 500px;
+}
+
+.uploaderButton {
+    font-family: "The_Bloom_Pen";
+    display: block;
+    outline: none;
+    border: none;
+    background-color: var(--light);
+    width: 100px;
+    height: 30px;
+    border-radius: 30px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text);
+    background-size: 100% 100%;
+    box-shadow: 0 0 0 7px var(--light) inset;
+    margin-bottom: 15px;
+}
+
+.uploaderButton:hover {
+    font-family: "The_Bloom_Pen";
+    background-image: linear-gradient(
+        145deg,
+        transparent 10%,
+        var(--dark) 10% 20%,
+        transparent 20% 30%,
+        var(--dark) 30% 40%,
+        transparent 40% 50%,
+        var(--dark) 50% 60%,
+        transparent 60% 70%,
+        var(--dark) 70% 80%,
+        transparent 80% 90%,
+        var(--dark) 90% 100%
+    );
+    animation: background 3s linear infinite;
+}
+
+.uploaderText {
+    font-size: 20px;
 }

@@ -1,4 +1,3 @@
-
 DROP TABLE IF EXISTS codes;
 DROP TABLE IF EXISTS friend_requests;
 DROP TABLE IF EXISTS chat_messages;
@@ -24,7 +23,6 @@ CREATE TABLE codes (
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
      );
      
- 
 
 CREATE TABLE friend_requests (
     id SERIAL UNIQUE PRIMARY KEY,

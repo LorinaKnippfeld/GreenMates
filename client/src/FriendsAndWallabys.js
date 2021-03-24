@@ -67,6 +67,9 @@ export default function FriendsAndWallabys(props) {
                         </div>
                     );
                 })}
+            <Link className="linkHomeSearch" to="/">
+                Back
+            </Link>
         </div>
     );
 }
