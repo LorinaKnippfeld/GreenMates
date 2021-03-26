@@ -1,1 +1,97 @@
 try & catch in server.js einfügen!
+
+/////////// PlantFinder: 
+
+Funktion um durch meinen Token einen User-Token zu erstellen 
+Dann den User-Token an die Seite hängen via Post
+
+axios-get-request mit query param 
+
+Token in Secrets speichern 
+
+////////// PlantPortfolio:
+
+get-Route um aktuelle Reminder zu finden 
+post-Route um Reminder zu kreieren 
+
+(update, delete)
+
+Reminder database
+Plant database 
+
+//////// Reminder: 
+
+
+
+
+
+
+
+
+
+
+////////////
+
+Sonstiges: 
+
+logout -> muss ich eine komponente erstellen? 
+delete account? 
+
+warum klappt login nicht? 
+abort bug abstellen? 
+
+token-route bei login oder register? 
+
+login-route? 
+
+an request.session.user = resultM 
+cosnst id = result[0].id
+
+const token = jwt.sign({id}), "jwtSecret", {
+    expiresIn: (zeit)
+})
+request.session.user=result; 
+response.json({auth: true, token: token, result: result} // pw??
+
+)
+
+
+// jetzt token kreiert 
+
+dann muss ich den token an das api request hängen? 
+
+als middleware beim request an die api 
+
+app.get('/findplants', verifyJWT, (request, response) => {
+
+
+})
+
+dann muss ich dafür die middleware erstellen 
+
+const  verifyJWT = (request, response, next) => {
+    const token = request.headers["x-access-token"]
+
+    if(!token) {
+        response.send("Token not found)
+    } else {
+        jwt.verify(token, "jwtSecret", (error, decoded) => {
+            if (error) {
+                response.json({auth: false, message: "Failed to authenticate"});
+            } else {
+                request.userId = decoded.id; 
+                next(); 
+            }
+        })
+    }
+}
+
+
+
+
+
+// .env variable? 
+
+// weil aber bei database SELECT * from 
+
+// add it to your garden 

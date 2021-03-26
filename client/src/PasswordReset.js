@@ -87,7 +87,7 @@ export default class PasswordReset extends React.Component {
                         <div className="error">{this.state.error}</div>
                     )}
 
-                    <form id="pwresetform" onSubmit={this.onSubmit}>
+                    <div id="pwresetform">
                         <label className="resetmaillabel" htmlFor="email">
                             Email
                         </label>
@@ -105,7 +105,7 @@ export default class PasswordReset extends React.Component {
                         >
                             Get reset code
                         </button>
-                    </form>
+                    </div>
                 </div>
             );
         }

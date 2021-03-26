@@ -13,6 +13,7 @@ const authRouter = require("./routes/auth.js");
 const resetRouter = require("./routes/reset.js");
 const profilesRouter = require("./routes/profiles.js");
 const requestRouter = require("./routes/friend-requests.js");
+const plantRouter = require("./routes/plantfinder.js");
 
 // Setup cookie stuff
 
@@ -52,6 +53,7 @@ app.use(authRouter);
 app.use(resetRouter);
 app.use(profilesRouter);
 app.use(requestRouter);
+app.use(plantRouter);
 
 // Redirect user based on login status
 
@@ -74,17 +76,6 @@ app.get("*", function (request, response) {
     }
 
     response.sendFile(path.join(__dirname, "..", "client", "index.html"));
-});
-
-// Create logout route
-
-app.get("/logout", (request, response) => {
-    if (!request.session.user) {
-        return response.redirect(302, "/login");
-    }
-
-    request.session = null;
-    response.redirect("/");
 });
 
 // Middleware for socket.io

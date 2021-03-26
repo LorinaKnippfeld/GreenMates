@@ -7,4 +7,11 @@ var myAxios = axios.create({
     xsrfCookieName: "mytoken",
 });
 
+var plantAxios = axios.create({
+    headers: {
+        "Access-Control-Allow-Origin": "https://trefle.io",
+    },
+});
+
 export default myAxios;
+export { plantAxios };

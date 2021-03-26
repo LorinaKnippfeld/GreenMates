@@ -11,6 +11,7 @@ import FindPeople from "./FindPeople.js";
 import Menu from "./Menu.js";
 import FriendsAndWallabys from "./FriendsAndWallabys.js";
 import Chat from "./Chat.js";
+import PlantFinder from "./PlantFinder.js";
 
 export default class App extends React.Component {
     constructor() {
@@ -88,6 +89,7 @@ export default class App extends React.Component {
                     <Route path="/" exact component={Menu} />
                     <Route path="/friends" component={FriendsAndWallabys} />
                     <Route path="/chat" component={Chat} />
+                    <Route path="/findplants" component={PlantFinder} />
                 </BrowserRouter>
             </div>
         );

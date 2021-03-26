@@ -74,7 +74,7 @@ router.post("/api/login", (request, response) => {
                                 "Email and password are not correct.. Please try again",
                         });
                     } else {
-                        request.session.user = user;
+                        request.session.user = results.rows[0];
                         return response.json({
                             success: true,
                         });
@@ -91,6 +91,17 @@ router.post("/api/login", (request, response) => {
                 });
             });
     }
+});
+
+// Create logout route
+
+router.get("/logout", (request, response) => {
+    if (!request.session.user) {
+        return response.redirect(302, "/login");
+    }
+
+    request.session = null;
+    response.redirect("/welcome");
 });
 
 module.exports = router;

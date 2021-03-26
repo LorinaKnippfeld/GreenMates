@@ -60,7 +60,7 @@ export default class Login extends React.Component {
                     <div className="error">{this.state.error}</div>
                 )}
 
-                <form>
+                <div>
                     <label className="emaillabel" htmlFor="email">
                         Email
                     </label>
@@ -89,7 +89,7 @@ export default class Login extends React.Component {
                     >
                         Login
                     </button>
-                </form>
+                </div>
                 <br></br>
                 <p className="notregistered">Not registered yet?</p>
                 <Link id="registerhere" to="/register">

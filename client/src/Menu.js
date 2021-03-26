@@ -31,6 +31,7 @@ export default class Menu extends React.Component {
                     <Link id="editProfileLink" to="/user">
                         profile
                     </Link>
+                    <Link id="findPlantsLink" to="/findplants"></Link>
                 </div>
             </div>
         );
