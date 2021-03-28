@@ -66,7 +66,7 @@ export default class Register extends React.Component {
     render() {
         return (
             <div className="registerform">
-                <h2 className="registertext">Please register my friend!</h2>
+                <h2 className="registertext">Please register</h2>
                 {this.state.error && (
                     <div className="registererror">{this.state.error}</div>
                 )}
@@ -100,7 +100,7 @@ export default class Register extends React.Component {
                     <input
                         type="email"
                         name="email"
-                        id="email"
+                        id="registeremailinput"
                         autoComplete="off"
                         onChange={(event) => this.handleChange(event)}
                     />
@@ -111,7 +111,7 @@ export default class Register extends React.Component {
                     <input
                         type="password"
                         name="password"
-                        id="password"
+                        id="registerpasswordinput"
                         autoComplete="off"
                         onChange={(event) => this.handleChange(event)}
                     />
@@ -128,7 +128,7 @@ export default class Register extends React.Component {
                     {"Already registerd?"}
                     <br></br>
                     <Link className="loginpathreg" to="/login">
-                        Please login here
+                        Login here
                     </Link>
                 </p>
             </div>

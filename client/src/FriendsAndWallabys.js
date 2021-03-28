@@ -28,7 +28,7 @@ export default function FriendsAndWallabys(props) {
     }, []);
 
     return (
-        <div className="overview">
+        <div className="friendsPage">
             <h2>Friend requests</h2>
             {!wallabys && <div>You have no current requests</div>}
             {wallabys &&

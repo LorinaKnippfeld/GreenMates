@@ -38,9 +38,9 @@ export default class Uploader extends React.Component {
 
     render() {
         return (
-            <div id="uploader">
+            <div className="uploader">
                 <div
-                    id="closeuploader"
+                    id="closeUploader"
                     onClick={() => this.props.closeHandler()}
                 >
                     X

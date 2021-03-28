@@ -21,15 +21,15 @@ export default class Menu extends React.Component {
                     <br></br>
                     <br></br>
                     <Link id="seeFriendsLink" to="/friends">
-                        friends
+                        Friends
                     </Link>
                     <br></br> <br></br>
                     <Link id="plantiFeedLink" to="/chat">
-                        feed
+                        Feed
                     </Link>
                     <br></br> <br></br>{" "}
                     <Link id="editProfileLink" to="/user">
-                        profile
+                        Profile
                     </Link>
                     <Link id="findPlantsLink" to="/findplants"></Link>
                 </div>

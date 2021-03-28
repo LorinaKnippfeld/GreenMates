@@ -13,9 +13,11 @@ export default class Welcometext extends React.Component {
         return (
             <div className="welcometext">
                 <p>
-                    We make it easy for you to connect and share with your plant
-                    family and friends online. Join today and become part of the
-                    worlds best social network ever!!
+                    Green Mates is here to help you keeping track on the plants
+                    you own, retrieve care instructions and share and connect
+                    with plant friends online. <br></br>
+                    <br></br>Join today and start growing your personal
+                    happiness garden.<br></br> <br></br>Green thumbs guaranteed.
                 </p>
             </div>
         );

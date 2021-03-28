@@ -5,6 +5,31 @@
     src: url("/The_Bloom_Pen.otf");
 }
 
+@font-face {
+    font-family: "Belgika-16th";
+    src: url("/Belgika-16th.otf");
+}
+
+@font-face {
+    font-family: "Mensch";
+    src: url("/mensch-thin-wf.ttf");
+}
+
+@font-face {
+    font-family: "Test";
+    src: url("/Autumn_in_November.ttf");
+}
+
+@font-face {
+    font-family: "MenschWF";
+    src: url("/mensch-wf.ttf");
+}
+
+@font-face {
+    font-family: "Mastina";
+    src: url("/Masthina.otf");
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -14,22 +39,25 @@
 }
 
 .logo {
-    background-image: url("/Logo.png");
+    background-image: url("/Logo_Green_Mates.png");
     background-size: contain;
     background-repeat: no-repeat;
-    height: 300px;
-    width: 300px;
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    left: 415px;
+    top: 60px;
 }
 
 .welcome {
-    background-image: url("/Landingpage_V1920x1080.png");
+    background-image: url("/Landingpage_1.png");
     background-size: cover;
     background-attachment: fixed;
     height: 100vh;
     width: 100vw;
-    font-family: "The_Bloom_Pen";
-    text-shadow: 1px 1px 1px #7a7a7a;
+    font-family: "MenschWF";
     font-size: 20px;
+    color: #2c632c;
 }
 
 .welcometext {
@@ -37,21 +65,26 @@
     width: 500px;
     font-size: 30px;
     position: absolute;
-    right: 130px;
+    left: 280px;
     text-align: center;
-    top: 260px;
+    top: 440px;
+    color: #60ad65;
+    text-shadow: 1px 1px grey;
 }
 
 .welcomeheadline {
     font-size: 50px;
     position: absolute;
-    right: 100px;
-    top: 170px;
+    font-family: "test";
+    color: #2c632c;
+    text-shadow: 2px 1px 1px grey;
+    left: 200px;
+    top: 320px;
 }
 
 .loginpath {
     position: absolute;
-    right: 300px;
+    right: 320px;
     top: 100px;
     font-size: 30px;
 }
@@ -61,7 +94,7 @@
 }
 
 .loginpath:hover {
-    color: #71a03f;
+    color: #60ad65;
     text-shadow: none;
 }
 .loginpath:before {
@@ -70,7 +103,7 @@
 
 .registerpath {
     position: absolute;
-    right: 100px;
+    right: 138px;
     top: 100px;
     font-size: 30px;
 }
@@ -80,7 +113,7 @@
 }
 
 .registerpath:hover {
-    color: #71a03f;
+    color: #60ad65;
     text-shadow: none;
 }
 
@@ -91,10 +124,19 @@
 /* Login Component ----------------------------------------------- */
 
 .loginform {
+    font-family: "MenschWF";
     position: absolute;
-    right: 100px;
-    top: 250px;
+    left: 280px;
+    top: 420px;
     text-align: center;
+    color: #2c632c;
+}
+
+.logintext {
+    font-family: "Test";
+    text-shadow: 1px 1px 1px grey;
+    color: #2c632c;
+    font-size: 30px;
 }
 
 #email {
@@ -132,154 +174,169 @@
 }
 
 #registerhere:visited {
-    color: black;
+    color: #c697a1;
 }
 
 #registerhere:hover {
-    color: #71a03f;
+    color: #60ad65;
     text-shadow: none;
 }
 
 #registerhere:before {
-    color: black;
+    color: #c697a1;
 }
 
 .resethere:visited {
-    color: black;
+    color: #c697a1;
 }
 
 .resethere:hover {
-    color: #71a03f;
+    color: #60ad65;
     text-shadow: none;
 }
 
 .resethere:before {
-    color: black;
-}
-
-:root {
-    --background: #e5ffb3;
-    --background-accent: #dbf8a3;
-    --background-accent-2: #bde66e;
-    --light: #92de34c5;
-    --dark: #71a03f;
-    --text: black;
+    color: #c697a1;
 }
 
 .loginbutton {
-    font-family: "The_Bloom_Pen";
-    display: block;
-    outline: none;
+    font-family: "Mensch";
+    position: absolute;
+    left: 330px;
+    top: 65px;
+    display: inline-block;
+    margin: 0.75rem;
+    padding: 0.75rem 1.5rem;
     border: none;
-    background-color: var(--light);
-    width: 100px;
-    height: 30px;
-    border-radius: 30px;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--text);
-    background-size: 100% 100%;
-    box-shadow: 0 0 0 7px var(--light) inset;
-    margin-bottom: 15px;
-    position: relative;
-    left: 200px;
-    top: 20px;
+    border-radius: 0.1875rem;
+    outline: none;
+    background-color: #c697a1;
+    color: white;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.5rem;
+    text-decoration: none;
+    text-align: center;
+    transition: all 150ms ease-out;
+}
+.loginbutton:focus,
+.button:hover {
+    background-color: #c697a1;
+    box-shadow: 0 0 0 0.1875rem white, 0 0 0 0.375rem #c697a1;
+}
+.loginbutton:active {
+    background-color: #c697a1;
+    box-shadow: 0 0 0 0.1875rem #c697a1, 0 0 0 0.375rem #c697a1;
+    transition-duration: 75ms;
+}
+.loginbutton.is-outlined {
+    border: 0.1875rem solid #c697a1;
+    background-color: transparent;
+    color: #c697a1;
+}
+.loginbutton.is-outlined:focus,
+.button.is-outlined:hover {
+    border-color: #c697a1;
+    color: #c697a1;
+}
+.loginbutton.is-outlined:active {
+    border-color: #c697a1;
+    color: #c697a1;
 }
 
-.loginbutton:hover {
-    font-family: "The_Bloom_Pen";
-    background-image: linear-gradient(
-        145deg,
-        transparent 10%,
-        var(--dark) 10% 20%,
-        transparent 20% 30%,
-        var(--dark) 30% 40%,
-        transparent 40% 50%,
-        var(--dark) 50% 60%,
-        transparent 60% 70%,
-        var(--dark) 70% 80%,
-        transparent 80% 90%,
-        var(--dark) 90% 100%
-    );
-    animation: background 3s linear infinite;
-}
-
-@keyframes background {
-    0% {
-        background-position: 0 0;
-    }
-    100% {
-        background-position: 400px 0;
-    }
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
 /* ResetPw Component --------------------------------------------- */
 
 .resetpwbutton {
-    font-family: "The_Bloom_Pen";
-    display: block;
-    outline: none;
+    font-family: "Mensch";
+    position: absolute;
+    left: 75px;
+    top: 30px;
+    display: inline-block;
+    margin: 0.75rem;
+    padding: 0.75rem 1.5rem;
     border: none;
-    background-color: var(--light);
-    width: 300px;
-    height: 30px;
-    border-radius: 30px;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--text);
-    background-size: 100% 100%;
-    box-shadow: 0 0 0 7px var(--light) inset;
-    margin-bottom: 15px;
-    position: relative;
-    left: 20px;
-    top: 20px;
+    border-radius: 0.1875rem;
+    outline: none;
+    background-color: #c697a1;
+    color: white;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.5rem;
+    text-decoration: none;
+    text-align: center;
+    transition: all 150ms ease-out;
 }
-
+.resetpwbutton:focus,
 .resetpwbutton:hover {
-    font-family: "The_Bloom_Pen";
-    background-image: linear-gradient(
-        145deg,
-        transparent 10%,
-        var(--dark) 10% 20%,
-        transparent 20% 30%,
-        var(--dark) 30% 40%,
-        transparent 40% 50%,
-        var(--dark) 50% 60%,
-        transparent 60% 70%,
-        var(--dark) 70% 80%,
-        transparent 80% 90%,
-        var(--dark) 90% 100%
-    );
-    animation: background 3s linear infinite;
+    background-color: #c697a1;
+    box-shadow: 0 0 0 0.1875rem white, 0 0 0 0.375rem #c697a1;
+}
+.resetpwbutton:active {
+    background-color: #c697a1;
+    box-shadow: 0 0 0 0.1875rem #c697a1, 0 0 0 0.375rem #c697a1;
+    transition-duration: 75ms;
+}
+.resetpwbutton.is-outlined {
+    border: 0.1875rem solid #c697a1;
+    background-color: transparent;
+    color: #c697a1;
+}
+.resetpwbutton.is-outlined:focus,
+.resetpwbutton.is-outlined:hover {
+    border-color: #c697a1;
+    color: #c697a1;
+}
+.resetpwbutton.is-outlined:active {
+    border-color: #c697a1;
+    color: #c697a1;
 }
 
-#pwresetform {
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.mamadiv {
+    width: 500px;
+}
+
+.pwresetform {
     text-align: center;
     height: 30px;
     width: 300px;
     position: absolute;
-    right: 280px;
-    top: 400px;
+    left: 310px;
+    top: 540px;
 }
 
 .requestpwcode {
     position: absolute;
     text-align: center;
-    right: 150px;
-    top: 250px;
+    left: 250px;
+    top: 450px;
     height: 100px;
     width: 500px;
 }
 
 .resetmaillabel {
     font-size: 25px;
-    position: realtive;
-    right: 530px;
-    top: 370px;
 }
 
 .resetmailinput {
+    height: 27px;
     position: relative;
+    left: 5px;
+    width: 200px;
+    bottom: 3px;
 }
 
 .insertpwcode {
@@ -287,8 +344,135 @@
     height: 30px;
     width: 300px;
     position: absolute;
-    right: 280px;
-    top: 250px;
+    left: 320px;
+    top: 450px;
+}
+
+.secretCode {
+    font-size: 25px;
+}
+
+.newPassword {
+    font-size: 25px;
+}
+
+.inputSecretCode {
+    height: 25px;
+    width: 200px;
+    position: relative;
+    left: 21px;
+    bottom: 3px;
+}
+
+.inputNewPassword {
+    height: 25px;
+    width: 200px;
+    position: relative;
+    left: 5px;
+    bottom: 3px;
+}
+
+.resetCodeForm {
+    width: 500px;
+    text-align: start;
+}
+
+.createNewButton {
+    font-family: "Mensch";
+    position: absolute;
+    left: 10px;
+    top: 170px;
+    display: inline-block;
+    margin: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.1875rem;
+    outline: none;
+    background-color: #c697a1;
+    color: white;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.5rem;
+    text-decoration: none;
+    text-align: center;
+    transition: all 150ms ease-out;
+}
+.createNewButton:focus,
+.createNewButton:hover {
+    background-color: #c697a1;
+    box-shadow: 0 0 0 0.1875rem white, 0 0 0 0.375rem #c697a1;
+}
+.createNewButton:active {
+    background-color: #c697a1;
+    box-shadow: 0 0 0 0.1875rem #c697a1, 0 0 0 0.375rem #c697a1;
+    transition-duration: 75ms;
+}
+.createNewButton.is-outlined {
+    border: 0.1875rem solid #c697a1;
+    background-color: transparent;
+    color: #c697a1;
+}
+.createNewButton.is-outlined:focus,
+.createNewButtonutton.is-outlined:hover {
+    border-color: #c697a1;
+    color: #c697a1;
+}
+.createNewButton.is-outlined:active {
+    border-color: #c697a1;
+    color: #c697a1;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.resetWorked {
+    position: absolute;
+    top: 430px;
+    left: 230px;
+}
+
+#resetWorkedText {
+    font-family: "Test";
+    text-shadow: 1px 1px 1px grey;
+    text-align: center;
+    font-size: 25px;
+}
+
+.resetWorkedLinkText {
+    font-size: 30px;
+}
+
+#resetWorkedLink {
+    font-size: 20px;
+    font-family: "MenschWF";
+    color: #c697a1;
+    position: absolute;
+    right: 250px;
+}
+
+#resetWorkedLink:hover {
+    font-size: 20px;
+    font-family: "MenschWF";
+    text-align: center;
+    color: #60ad65;
+}
+
+#resetWorkedLink:visited:hover {
+    font-size: 20px;
+    font-family: "MenschWF";
+    text-align: center;
+    color: #60ad65;
+}
+
+#resetWorkedLink:visited {
+    font-size: 20px;
+    font-family: "MenschWF";
+    text-align: center;
+    color: #c697a1;
 }
 
 /* Register Component -------------------------------------------- */
@@ -298,50 +482,66 @@
     height: 200px;
     width: 500px;
     position: absolute;
-    right: 120px;
-    top: 270px;
+    left: 200px;
+    top: 420px;
 }
 
 .registertext {
-    font-size: 35px;
+    font-size: 30px;
+    font-family: "Test";
+    text-shadow: 1px 1px 1px grey;
 }
 
 .registerbutton {
-    font-family: "The_Bloom_Pen";
-    display: block;
-    outline: none;
+    font-family: "Mensch";
+    position: absolute;
+    left: 420px;
+    top: 85px;
+    display: inline-block;
+    margin: 0.75rem;
+    padding: 0.75rem 1.5rem;
     border: none;
-    background-color: var(--light);
-    width: 300px;
-    height: 30px;
-    border-radius: 30px;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--text);
-    background-size: 100% 100%;
-    box-shadow: 0 0 0 7px var(--light) inset;
-    margin-bottom: 15px;
-    position: relative;
-    left: 100px;
-    top: 20px;
+    border-radius: 0.1875rem;
+    outline: none;
+    background-color: #c697a1;
+    color: white;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.5rem;
+    text-decoration: none;
+    text-align: center;
+    transition: all 150ms ease-out;
+}
+.registerbutton:focus,
+.registerbutton:hover {
+    background-color: #c697a1;
+    box-shadow: 0 0 0 0.1875rem white, 0 0 0 0.375rem #c697a1;
+}
+.registerbutton:active {
+    background-color: #c697a1;
+    box-shadow: 0 0 0 0.1875rem #c697a1, 0 0 0 0.375rem #c697a1;
+    transition-duration: 75ms;
+}
+.registerbutton.is-outlined {
+    border: 0.1875rem solid #c697a1;
+    background-color: transparent;
+    color: #c697a1;
+}
+.registerbutton.is-outlined:focus,
+.registerbuttonutton.is-outlined:hover {
+    border-color: #c697a1;
+    color: #c697a1;
+}
+.registerbutton.is-outlined:active {
+    border-color: #c697a1;
+    color: #c697a1;
 }
 
-.registerbutton:hover {
-    font-family: "The_Bloom_Pen";
-    background-image: linear-gradient(
-        145deg,
-        transparent 10%,
-        var(--dark) 10% 20%,
-        transparent 20% 30%,
-        var(--dark) 30% 40%,
-        transparent 40% 50%,
-        var(--dark) 50% 60%,
-        transparent 60% 70%,
-        var(--dark) 70% 80%,
-        transparent 80% 90%,
-        var(--dark) 90% 100%
-    );
-    animation: background 3s linear infinite;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
 .firstnamelabel {
@@ -357,80 +557,120 @@
     width: 200px;
     position: relative;
     left: 10px;
+    bottom: 5px;
 }
 
 #firstname {
     height: 20px;
     width: 200px;
     position: relative;
-    left: 5px;
+    left: 6px;
+    bottom: 5px;
+}
+
+#registeremailinput {
+    height: 20px;
+    width: 200px;
+    position: relative;
+    bottom: 5px;
+    left: 29px;
+}
+
+#registerpasswordinput {
+    height: 20px;
+    width: 200px;
+    position: relative;
+    bottom: 5px;
+    left: 9px;
 }
 
 .alreadyRegistered {
     font-size: 30px;
+    position: absolute;
+    top: 196px;
+    right: 120px;
 }
 
 .loginpathreg {
-    font-size: 22px;
+    font-size: 20px;
+    position: relative;
+    bottom: 8px;
 }
 
 .loginpathreg:visited {
-    color: black;
+    color: #c697a1;
     text-shadow: none;
 }
 
 .loginpathreg:hover {
-    color: #71a03f;
+    color: #60ad65;
     text-shadow: none;
 }
 
 .loginpathreg:before {
-    color: black;
+    color: #c697a1;
 }
-
-/* App Component ------------------------------------------------- */
 
 /* ProfilePic Component -------------------------------------------- */
 
 .homeText {
-    font-size: 90px;
-    position: relative;
-    left: 218px;
-    top: 40px;
+    font-family: "Test";
+    font-size: 120px;
+    position: absolute;
+    left: 390px;
+    top: 50px;
     width: 200px;
+    color: black;
+    text-shadow: 2px 1px 1px grey;
 }
 
 .appProfilePic {
     position: absolute;
-    left: 160px;
-    top: 150px;
+    left: 120px;
+    top: 80px;
 }
 
 .appProfilePic img {
-    height: 370px;
-    width: 300px;
-    border: 5px solid black;
-    border-radius: 50px;
+    height: 250px;
+    width: 200px;
+    border: 5px solid #302523;
+    box-shadow: 2px 2px 2px white;
+    border-radius: 10%;
 }
 
 .app {
-    background-image: url("/Landingpage_App.png");
+    background-image: url("/Landingpage_2.png");
     background-size: cover;
     background-attachment: fixed;
     height: 100vh;
     width: 100vw;
-    font-family: "The_Bloom_Pen";
-    text-shadow: 1px 1px 1px #7a7a7a;
+}
+
+.app .logo {
+    position: absolute;
+    top: 300px;
+    left: 700px;
 }
 
 /* Menu Component -------------------------------------------- */
 
 .menu {
-    font-size: 35px;
+    font-family: "Mastina";
+    font-size: 50px;
     position: absolute;
-    left: 32px;
-    top: 500px;
+    left: 50px;
+    top: 220px;
     text-align: center;
+    text-shadow: none;
+    font-weight: bold;
+    width: 200px;
+    height: 300px;
+    text-shadow: 1px 1px 1px grey;
+}
+
+.menu a:link,
+a:visited {
+    text-decoration: none;
 }
 
 #searchLink:hover {
@@ -470,6 +710,79 @@
 }
 #editProfileLink:visited:hover {
     color: green;
+}
+
+.uploader {
+    position: absolute;
+    top: 255px;
+    left: 10px;
+    font-family: "MenschWF";
+}
+
+.uploaderText {
+    font-size: 20px;
+    font-family: "MenschWF";
+}
+
+#closeUploader {
+    position: absolute;
+    left: 200px;
+    font-family: "MenschWF";
+    top: 3px;
+}
+#closeUploader:hover {
+    color: green;
+}
+
+.uploaderButton {
+    font-family: "Mensch";
+    position: absolute;
+    left: 30px;
+    top: 40px;
+    display: inline-block;
+    margin: 0.75rem;
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 0.1875rem;
+    outline: none;
+    background-color: #c697a1;
+    color: white;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 300;
+    text-decoration: none;
+    text-align: center;
+    transition: all 150ms ease-out;
+}
+.uploaderButton:focus,
+.uploaderButton:hover {
+    background-color: #c697a1;
+    box-shadow: 0 0 0 0.1875rem white, 0 0 0 0.375rem #c697a1;
+}
+.uploaderButton:active {
+    background-color: #c697a1;
+    box-shadow: 0 0 0 0.1875rem #c697a1, 0 0 0 0.375rem #c697a1;
+    transition-duration: 75ms;
+}
+.uploaderButton.is-outlined {
+    border: 0.1875rem solid #c697a1;
+    background-color: transparent;
+    color: #c697a1;
+}
+.uploaderButton.is-outlined:focus,
+.uploaderButtonutton.is-outlined:hover {
+    border-color: #c697a1;
+    color: #c697a1;
+}
+.uploaderButton.is-outlined:active {
+    border-color: #c697a1;
+    color: #c697a1;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
 /* Search Component -------------------------------------------- */
@@ -533,6 +846,16 @@
 }
 
 /* Profile Component -------------------------------------------- */
+
+.app .profile {
+    background-image: url("/Page_3.png");
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+    width: 100vw;
+    font-family: "MenschWF";
+    font-size: 20px;
+}
 
 .bioButtonOne {
     font-family: "The_Bloom_Pen";
@@ -633,51 +956,6 @@
     font-size: 30px;
 }
 
-#uploader {
-    position: absolute;
-    top: 420px;
-    left: 500px;
-}
-
-.uploaderButton {
-    font-family: "The_Bloom_Pen";
-    display: block;
-    outline: none;
-    border: none;
-    background-color: var(--light);
-    width: 100px;
-    height: 30px;
-    border-radius: 30px;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--text);
-    background-size: 100% 100%;
-    box-shadow: 0 0 0 7px var(--light) inset;
-    margin-bottom: 15px;
-}
-
-.uploaderButton:hover {
-    font-family: "The_Bloom_Pen";
-    background-image: linear-gradient(
-        145deg,
-        transparent 10%,
-        var(--dark) 10% 20%,
-        transparent 20% 30%,
-        var(--dark) 30% 40%,
-        transparent 40% 50%,
-        var(--dark) 50% 60%,
-        transparent 60% 70%,
-        var(--dark) 70% 80%,
-        transparent 80% 90%,
-        var(--dark) 90% 100%
-    );
-    animation: background 3s linear infinite;
-}
-
-.uploaderText {
-    font-size: 20px;
-}
-
 /* Chat Component -------------------------------------------- */
 
 .chat {
@@ -704,8 +982,8 @@
 
 /* Other people -------------------------------------------- */
 
-.overview {
-    background-image: url("/chat_background.png");
+.friendsPage {
+    background-image: url("/Page_3.png");
     background-size: contain;
     background-repeat: no-repeat;
     width: 1920px;
@@ -737,4 +1015,12 @@
     width: 100px;
     border: 5px solid black;
     border-radius: 50px;
+}
+
+/* Plant finder  -------------------------------------------- */
+
+.plantFider {
+    background-image: url("/Page_4.png");
+    background-size: contain;
+    background-repeat: no-repeat;
 }

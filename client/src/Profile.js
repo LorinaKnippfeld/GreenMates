@@ -14,7 +14,7 @@ export default class Profile extends React.Component {
 
     render() {
         return (
-            <div className="Profile">
+            <div className="profile">
                 <ProfilePic
                     url={this.props.url}
                     clickHandler={this.props.clickHandler}

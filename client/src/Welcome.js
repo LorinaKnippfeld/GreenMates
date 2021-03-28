@@ -12,7 +12,7 @@ export default function Welcome() {
     return (
         <div className="welcome">
             <div className="logo"></div>
-            <h1 className="welcomeheadline">Welcome to Planti-Vz!</h1>
+            <h1 className="welcomeheadline">Welcome to Green Mates!</h1>
             <HashRouter>
                 <div>
                     <Navbar />

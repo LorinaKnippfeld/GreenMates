@@ -42,6 +42,7 @@ export default class App extends React.Component {
         }
         return (
             <div className="app">
+                <div className="logo"></div>
                 <div className="appProfilePic">
                     <ProfilePic
                         url={user.profile_pic_url}
@@ -53,7 +54,10 @@ export default class App extends React.Component {
                         <Uploader
                             url={user.profile_pic_url}
                             userHandler={(user) =>
-                                this.setState({ user, uploaderVisible: false })
+                                this.setState({
+                                    user,
+                                    uploaderVisible: false,
+                                })
                             }
                             closeHandler={() => {
                                 this.setState({ uploaderVisible: false });
@@ -61,6 +65,7 @@ export default class App extends React.Component {
                         />
                     )}
                 </div>
+
                 <BrowserRouter>
                     <Route
                         path="/user"

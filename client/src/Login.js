@@ -52,9 +52,7 @@ export default class Login extends React.Component {
     render() {
         return (
             <div className="loginform">
-                <h2 className="logintext">
-                    Please login my dear plantifriend!
-                </h2>
+                <h2 className="logintext">Please login</h2>
                 <br></br>
                 {this.state.error && (
                     <div className="error">{this.state.error}</div>

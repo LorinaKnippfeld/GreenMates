@@ -40,7 +40,7 @@ export default function PlantFinder() {
         });
     };
     return (
-        <div>
+        <div className="plantFinder">
             Hello Test <button onClick={getPlant}>Get plants here</button>
             {plant}
             <Link className="linkHomeSearch" to="/">

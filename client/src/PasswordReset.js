@@ -78,16 +78,16 @@ export default class PasswordReset extends React.Component {
     render() {
         if (this.state.step === 1) {
             return (
-                <div>
+                <div className="mamadiv">
                     <h2 className="requestpwcode">
                         Please provide your email address so we can sent you a
-                        reset code (very cool)
+                        reset code
                     </h2>
                     {this.state.error && (
                         <div className="error">{this.state.error}</div>
                     )}
 
-                    <div id="pwresetform">
+                    <div className="pwresetform">
                         <label className="resetmaillabel" htmlFor="email">
                             Email
                         </label>
@@ -95,7 +95,6 @@ export default class PasswordReset extends React.Component {
                             className="resetmailinput"
                             type="email"
                             name="email"
-                            id="email"
                             autoComplete="off"
                             onChange={(event) => this.handleChange(event)}
                         />
@@ -118,8 +117,8 @@ export default class PasswordReset extends React.Component {
                     {this.state.error && (
                         <div className="error">{this.state.error}</div>
                     )}
-
-                    <form onSubmit={this.onSubmit}>
+                    <br></br>
+                    <form className="resetCodeForm" onSubmit={this.onSubmit}>
                         <label className="secretCode" htmlFor="secretcode">
                             Secret Code
                         </label>
@@ -130,7 +129,8 @@ export default class PasswordReset extends React.Component {
                             id="secretcode"
                             autoComplete="off"
                             onChange={(event) => this.handleChange(event)}
-                        />
+                        />{" "}
+                        <br></br>
                         <label className="newPassword" htmlFor="newPassword">
                             New password
                         </label>
@@ -143,7 +143,7 @@ export default class PasswordReset extends React.Component {
                             onChange={(event) => this.handleChange(event)}
                         />
                         <button
-                            className="resetpwbutton"
+                            className="createNewButton"
                             onClick={() => this.setNewPassword()}
                         >
                             Create a new password
@@ -154,11 +154,14 @@ export default class PasswordReset extends React.Component {
         }
         if (this.state.step === 3) {
             return (
-                <div>
-                    <div>Reset worked!</div>
-                    <p>
-                        {"Click here for the login page"}
-                        <Link to="/login">Please login here.</Link>
+                <div className="resetWorked">
+                    <div id="resetWorkedText">Reset worked!</div>
+                    <br></br>
+                    <p className="resetWorkedLinkText">
+                        You can now login with your new password<br></br>
+                        <Link id="resetWorkedLink" to="/login">
+                            Login here
+                        </Link>
                     </p>
                 </div>
             );
