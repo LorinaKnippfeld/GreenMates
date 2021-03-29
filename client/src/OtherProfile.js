@@ -41,10 +41,15 @@ export default class OtherProfile extends React.Component {
         } else {
             return (
                 <div className="otherUser">
+                    <div id="otherUserProfile">
+                        {user.firstname}'s profile page
+                    </div>
                     <ProfilePic url={user.profile_pic_url} />
-                    <p>firstname = {user.firstname}</p>
-                    <p>lastname = {user.lastname}</p>
-                    <p>bio = {user.bio}</p>
+                    <div className="profileData">
+                        <p>{user.firstname}</p>
+                        <p>{user.lastname}</p>
+                    </div>
+                    <p className="bioResult">{user.bio}</p>
                     <br />
                     {user.id && <FriendButton otherId={user.id} />}
                     <Link className="linkHomeSearch" to="/">

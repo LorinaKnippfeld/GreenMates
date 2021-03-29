@@ -33,21 +33,20 @@ export default function FindPeople() {
     }, [query]);
 
     return (
-        <div>
-            <label className="searchPlanti" htmlFor="user-search">
-                Search Plantis:
-            </label>
+        <div className="searchUser">
+            <label htmlFor="user-search">Search other plant enthusiasts:</label>
             <input
-                className="plantiSearch"
+                className="peopleSearch"
                 id="search"
+                autocomplete="off"
                 type="text"
                 onChange={(event) => {
                     setQuery(event.target.value);
                 }}
             />
-            <div>
+            <div className="searchResult">
                 {users.map((users, index) => (
-                    <div key={index} id="searchResults">
+                    <div key={index}>
                         <Link to={"/users/" + users.id}>
                             <p>
                                 {users.firstname} {users.lastname}

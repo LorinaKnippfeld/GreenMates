@@ -14,36 +14,49 @@ export default function Chat() {
     };
 
     return (
-        <div className="chat">
-            <h1>Chat</h1>
+        <div className="chatComponent">
+            <div className="logo"></div>
+            <div className="chat">
+                <h2>
+                    Use this field right here to talk to other planthaholics
+                </h2>
+                <h1>Chat</h1>
 
-            {messages &&
-                messages.map((message) => (
-                    <Message {...message} key={message.message_id} />
-                ))}
+                {messages &&
+                    messages.map((message) => (
+                        <Message {...message} key={message.message_id} />
+                    ))}
 
-            <div>
-                <input
-                    onChange={(e) => setDraft(e.target.value)}
-                    value={draft}
-                />
-                <button onClick={(e) => handleButtonOnClick()}>Send</button>
+                <div>
+                    <input
+                        onChange={(e) => setDraft(e.target.value)}
+                        value={draft}
+                    />
+                    <button
+                        id="chatButton"
+                        onClick={(e) => handleButtonOnClick()}
+                    >
+                        Send
+                    </button>
+                </div>
+                <Link className="linkHomeSearch" to="/">
+                    Back
+                </Link>
             </div>
-            <Link className="linkHomeSearch" to="/">
-                Back
-            </Link>
         </div>
     );
 }
 
 function Message(props) {
     return (
-        <div className="Message">
-            <img className="chatPic" src={props.profile_pic_url} />
-            <span className="chatPerson">
-                {props.firstname} {props.lastname}
-            </span>
-            <strong className="chatMessage">{props.message_text}</strong>
+        <div className="chatWrapper">
+            <div className="Message">
+                <img className="chatPic" src={props.profile_pic_url} />
+                <span className="chatPerson">
+                    {props.firstname} {props.lastname}
+                </span>
+                <strong className="chatMessage">{props.message_text}</strong>
+            </div>
         </div>
     );
 }

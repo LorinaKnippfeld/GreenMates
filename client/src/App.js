@@ -71,6 +71,7 @@ export default class App extends React.Component {
                         render={() => {
                             return (
                                 <Profile
+                                    user={user}
                                     url={user.profile_pic_url}
                                     clickHandler={() =>
                                         this.setState({ uploaderVisible: true })

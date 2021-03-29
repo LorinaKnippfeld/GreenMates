@@ -15,9 +15,18 @@ export default class Profile extends React.Component {
     render() {
         return (
             <div className="profile">
+                <div className="profileData">
+                    {this.props.user.firstname}
+                    <br></br>
+
+                    {this.props.user.lastname}
+                    <br></br>
+                    {this.props.user.email}
+                </div>
                 <h2>Profile</h2>
                 <h5>Click on the image to change your profile picture</h5>
                 <h4>Click below to change your bio</h4>
+
                 <ProfilePic
                     url={this.props.url}
                     clickHandler={this.props.clickHandler}
