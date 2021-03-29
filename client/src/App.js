@@ -42,7 +42,6 @@ export default class App extends React.Component {
         }
         return (
             <div className="app">
-                <div className="logo"></div>
                 <div className="appProfilePic">
                     <ProfilePic
                         url={user.profile_pic_url}

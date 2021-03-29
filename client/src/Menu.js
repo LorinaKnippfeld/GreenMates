@@ -33,6 +33,7 @@ export default class Menu extends React.Component {
                     </Link>
                     <Link id="findPlantsLink" to="/findplants"></Link>
                 </div>
+                <div className="logo"></div>
             </div>
         );
     }
