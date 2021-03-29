@@ -4,6 +4,7 @@ import {
     UNFRIEND,
     ACTION_CHAT_MESSAGE,
     CHAT_MESSAGES,
+    CLIENT_TOKEN,
 } from "./actions.js";
 
 // Friend button on friendlist
@@ -54,6 +55,15 @@ export default function (state = { messages: [] }, action) {
         state = {
             ...state,
             messages: action.messages,
+        };
+    }
+
+    // Client token
+
+    if (action.type == CLIENT_TOKEN) {
+        state = {
+            ...state,
+            token: action.token,
         };
     }
 

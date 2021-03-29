@@ -1,12 +1,18 @@
 import axios from "./myAxios.js";
 
-// friend button fun
+// friend button setup
 
 export const LOAD_FRIENDS = "load friends";
 export const ACCEPT_FRIEND = "accept friend";
 export const UNFRIEND = "unfriend friend";
 export const ACTION_CHAT_MESSAGE = "chat message";
 export const CHAT_MESSAGES = "chat messages";
+
+// plant finder client token setup
+
+export const CLIENT_TOKEN = "get client token";
+
+// friend button acions
 
 export const loadFriends = async () => {
     const result = await axios.get("/api/friend-requests/friends");
@@ -31,6 +37,18 @@ export const unfriend = async (otherId) => {
     return {
         type: UNFRIEND,
         id: otherId,
+    };
+};
+
+// plant finder client token actions
+
+export const getClientToken = async () => {
+    const result = await axios.get("/api/client-token/");
+    const token = result.data;
+    console.log(result.data);
+    return {
+        type: CLIENT_TOKEN,
+        token: token,
     };
 };
 

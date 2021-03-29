@@ -1025,7 +1025,7 @@ a:visited {
 /* Chat Component -------------------------------------------- */
 
 .chat {
-    background-image: url("/chat_background.png");
+    background-image: url("/Page_1.png");
     background-size: contain;
     background-repeat: no-repeat;
     width: 1920px;
@@ -1049,7 +1049,7 @@ a:visited {
 /* Other people -------------------------------------------- */
 
 .friendsPage {
-    background-image: url("/Page_3.png");
+    background-image: url("/Page_2.png");
     background-size: contain;
     background-repeat: no-repeat;
     width: 1920px;
