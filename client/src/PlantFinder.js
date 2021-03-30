@@ -28,13 +28,30 @@ export default function PlantFinder() {
             setPlant(response.data);
         });
     };
+
+    const addPlant = async (
+        plant_id,
+        common_name,
+        scientific_name,
+        image_url
+    ) => {
+        await axios.post("/api/plant-garden/add-plant/", {
+            plant_id,
+            common_name,
+            scientific_name,
+            image_url,
+        });
+    };
+
     return (
         <div className="findPlants">
             <h1>Plant Search</h1>
             <h2>Search for plants here and add them to your garden.</h2>
             <div className="logo"></div>
             <div className="plantFinder">
-                <button onClick={getPlant}>Search</button>
+                <button className="plantFinderButton" onClick={getPlant}>
+                    Search
+                </button>
                 <input onChange={(e) => setQuery(e.target.value)} />
                 {!plant && (
                     <div id="pleaseSearch">Please type here to search</div>
@@ -48,7 +65,19 @@ export default function PlantFinder() {
                                     src={plantItem.image_url}
                                 />
                                 {plantItem.common_name} <br></br>
-                                {plantItem.scientific_name}{" "}
+                                {plantItem.scientific_name}
+                                <button
+                                    onClick={() =>
+                                        addPlant(
+                                            plantItem.id,
+                                            plantItem.common_name,
+                                            plantItem.scientific_name,
+                                            plantItem.image_url
+                                        )
+                                    }
+                                >
+                                    Add plant
+                                </button>
                             </div>
                         );
                     })}
@@ -59,5 +88,3 @@ export default function PlantFinder() {
         </div>
     );
 }
-
-// planten in datenbank ein

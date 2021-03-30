@@ -2,8 +2,7 @@
 
 const spicedPG = require("spiced-pg");
 const db = spicedPG(
-    process.env.DATABASE_URL ||
-        "postgres:clear:lori@localhost:5432/socialnetwork"
+    process.env.DATABASE_URL || "postgres:clear:lori@localhost:5432/greenmates"
 );
 
 // Add users into database
@@ -189,5 +188,38 @@ exports.addMessage = (user_id, message_text) => {
         *
     `,
         [user_id, message_text]
+    );
+};
+
+// plant garden functions
+
+exports.addPlant = (
+    plant_id,
+    user_id,
+    common_name,
+    scientific_name,
+    image_url
+) => {
+    return db.query(
+        `INSERT INTO plant_garden
+            (plant_id, user_id, common_name, scientific_name, image_url) 
+        VALUES 
+               ($1, $2, $3, $4, $5) 
+        RETURNING 
+            *
+            `,
+        [plant_id, user_id, common_name, scientific_name, image_url]
+    );
+};
+
+exports.deletePlant = (id) => {
+    return db.query("DELETE FROM plant_garden WHERE id=$1;", [id]);
+};
+
+exports.getPlants = (user_id) => {
+    return db.query(
+        `SELECT * FROM plant_garden WHERE user_id=$1 
+        ORDER BY created_at DESC`,
+        [user_id]
     );
 };

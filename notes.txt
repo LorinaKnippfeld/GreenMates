@@ -1,26 +1,19 @@
 
 ////////// zuerst database für pflanzen in garten 
 
-CREATE TABLE plant_garden (
-    id SERIAL UNIQUE PRIMARY KEY,
-    common_name VARCHAR(255) NOT NULL,
-    scientific_name VARCHAR(255) NOT NULL,
-    image_url VARCHAR (500),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
 
 /// dann database function
 
-exports.addPlant = (id) => {
+exports.addPlant = (plant_id, user_id, common_name, scientific_name, image_url) => {
     return db.query(
         `INSERT INTO plant_garden
-            () 
+            (plant_id, user_id, common_name, scientific_name, image_url) 
         VALUES 
-               ($1) 
+               ($1, $2, $3, $4, $5) 
         RETURNING 
             *
             `,
-        [id]
+        [plant_id, user_id, common_name, scientific_name, image_url]
     );
 };
 
@@ -33,11 +26,11 @@ exports.deletePlant = (id) => {
     );
 };
 
-exports.getPlants = (id) => {
+exports.getPlants = (user_id) => {
      return db.query(
-        `SELECT * FROM plant_garden WHERE id=$1 
+        `SELECT * FROM plant_garden WHERE user_id=$1 
         ORDER BY created_at DESC`,
-        [id]
+        [user_id]
     );
 };
 

@@ -1424,7 +1424,7 @@ a:visited {
     color: #c697a1;
 }
 
-.plantFinder button {
+.plantFinderButton {
     font-family: "MenschWF";
     position: absolute;
     left: 740px;
@@ -1445,27 +1445,28 @@ a:visited {
     transition: all 150ms ease-out;
 }
 
-.plantFinder button:focus,
-.plantFinder button:hover {
+.plantFinderButton:focus,
+.plantFinderButton:hover {
     background-color: #c697a1;
     box-shadow: 0 0 0 0.1875rem white, 0 0 0 0.375rem #c697a1;
 }
-.plantFinder button:active {
+.plantFinderButton:active {
     background-color: #c697a1;
     box-shadow: 0 0 0 0.1875rem #c697a1, 0 0 0 0.375rem #c697a1;
     transition-duration: 75ms;
 }
-.plantFinder button.is-outlined {
+.plantFinderButton.is-outlined {
     border: 0.1875rem solid #c697a1;
     background-color: transparent;
     color: #c697a1;
 }
-.plantFinder button.is-outlined:focus,
-.plantFinder button.is-outlined:hover {
+
+.plantFinderButton.is-outlined:focus,
+.plantFinderButton.is-outlined:hover {
     border-color: #c697a1;
     color: #c697a1;
 }
-.plantFinder button.is-outlined:active {
+.plantFinderButton.is-outlined:active {
     border-color: #c697a1;
     color: #c697a1;
 }

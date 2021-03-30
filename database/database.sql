@@ -2,6 +2,7 @@ DROP TABLE IF EXISTS codes;
 DROP TABLE IF EXISTS friend_requests;
 DROP TABLE IF EXISTS chat_messages;
 DROP TABLE IF EXISTS users; 
+DROP TABLE IF EXISTS plant_garden;
 
 
 CREATE TABLE users (
@@ -40,3 +41,12 @@ CREATE TABLE chat_messages (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ); 
 
+CREATE TABLE plant_garden (
+    id SERIAL PRIMARY KEY,
+    plant_id VARCHAR(255) NOT NULL,
+    user_id INTEGER REFERENCES users(id) NOT NULL, 
+    common_name VARCHAR(255) NOT NULL,
+    scientific_name VARCHAR(255) NOT NULL,
+    image_url VARCHAR (500),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
