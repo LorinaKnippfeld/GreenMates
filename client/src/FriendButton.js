@@ -69,6 +69,6 @@ export default function FriendButton(props) {
             </button>
         );
     } else {
-        return <button> Planti </button>;
+        return <button> Ops </button>;
     }
 }

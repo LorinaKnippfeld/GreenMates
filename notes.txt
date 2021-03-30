@@ -1,97 +1,170 @@
-try & catch in server.js einfügen!
 
-/////////// PlantFinder: 
+////////// zuerst database für pflanzen in garten 
 
-Funktion um durch meinen Token einen User-Token zu erstellen 
-Dann den User-Token an die Seite hängen via Post
+CREATE TABLE plant_garden (
+    id SERIAL UNIQUE PRIMARY KEY,
+    common_name VARCHAR(255) NOT NULL,
+    scientific_name VARCHAR(255) NOT NULL,
+    image_url VARCHAR (500),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
-axios-get-request mit query param 
+/// dann database function
 
-Token in Secrets speichern 
+exports.addPlant = (id) => {
+    return db.query(
+        `INSERT INTO plant_garden
+            () 
+        VALUES 
+               ($1) 
+        RETURNING 
+            *
+            `,
+        [id]
+    );
+};
 
-////////// PlantPortfolio:
+// Delete friend request
 
-get-Route um aktuelle Reminder zu finden 
-post-Route um Reminder zu kreieren 
+exports.deletePlant = (id) => {
+    return db.query(
+        "DELETE FROM plant_garden WHERE id=$1;",
+        [id]
+    );
+};
 
-(update, delete)
+exports.getPlants = (id) => {
+     return db.query(
+        `SELECT * FROM plant_garden WHERE id=$1 
+        ORDER BY created_at DESC`,
+        [id]
+    );
+};
 
-Reminder database
-Plant database 
+//////// Server-Route um aktuelle Pflanze zu bekommen 
 
-//////// Reminder: 
+const database = require("../../database/database.js");
 
+router.get("/api/plant-garden/", async (req, res) => {
+    
+    const result = await database.getPlants(id);
+    const currentPlants = result.rows[0] 
 
+    if (!currentPlants) {
+        // no plants yet
+        res.json({ status: });
+    } else (currentPlants) {
+        res.json({ status: }); /// ???
 
+/////// Server-Route um Pflanze hinzuzfügen / löschen 
 
+router.post("/api/plant-garden/:action/", async (req, res) => {
+  
+    if (action == ADD_PLANT) {
+            await database.addPlant(id);
+            res.json({ newStatus:  });
 
+   const plant = {
+       ...result.row[0];
 
+   }         
 
-
-
-
-////////////
-
-Sonstiges: 
-
-logout -> muss ich eine komponente erstellen? 
-delete account? 
-
-warum klappt login nicht? 
-abort bug abstellen? 
-
-token-route bei login oder register? 
-
-login-route? 
-
-an request.session.user = resultM 
-cosnst id = result[0].id
-
-const token = jwt.sign({id}), "jwtSecret", {
-    expiresIn: (zeit)
-})
-request.session.user=result; 
-response.json({auth: true, token: token, result: result} // pw??
-
-)
-
-
-// jetzt token kreiert 
-
-dann muss ich den token an das api request hängen? 
-
-als middleware beim request an die api 
-
-app.get('/findplants', verifyJWT, (request, response) => {
-
-
-})
-
-dann muss ich dafür die middleware erstellen 
-
-const  verifyJWT = (request, response, next) => {
-    const token = request.headers["x-access-token"]
-
-    if(!token) {
-        response.send("Token not found)
     } else {
-        jwt.verify(token, "jwtSecret", (error, decoded) => {
-            if (error) {
-                response.json({auth: false, message: "Failed to authenticate"});
-            } else {
-                request.userId = decoded.id; 
-                next(); 
-            }
-        })
+            await database.deletePlant(id);
+            res.json({  });
+          
     }
+
+
+/////////////////////
+
+action 
+
+export const ADD_PLANT = "add plant";
+export const DELETE_PLANT = "delete plant";
+
+export const addPlant = async (id) => {
+    const result = await axios.post("/api/plant-garden/add/" + id);
+    const addPlant = result.data;
+    return {
+        type: ADD_PLANT,
+        id: ,
+    };
+};
+
+export const deletePlant = async (id) => {
+    const result = await axios.post("/api/plant-garden/delete/" + id);
+    return {
+        type: DELETE_PLANT,
+        id: ,
+    };
+};
+
+/// reducer 
+
+
+if (action.type == ADD_PLANT) {
+        state = {
+            ...state,
+            plants: state.plants.map((plant) => {
+                return plant 
+                }
+            }),
+        };
+    }
+
+    if (action.type == DELETE_PLANT) {
+        state = {
+            ...state,
+            plants: state.plants.filter((plant) => {
+                return plant
+                        }
+            }),
+        };
+    }
+
+// componente 
+
+const STATUS_NO_PLANT = "no plant";
+const STATUS_PLANT_ADDED = "added plant";
+
+
+export default function PlantGarden() {
+    const dispatch = useDispatch();
+    const [garden, setGarden] = useState("");
 }
 
+// useEffect um den current Plant Garden zu bekommen 
 
+useEffect(() => {
+        axios.get("/api/plant-garden/").then((response) => {
+            const { status } = response.data;
+            setStatus(status);
+        });
+    }, []);
 
+    // sendAction um die Action zu 
 
+      const sendAction = async (action) => {
+        const response = await axios.post(
+            "/api/plant-garden/" + action
+        );
 
-// .env variable? 
+        const { newStatus } = response.data;
+        setStatus(newStatus);
+    }; 
 
-// weil aber bei database SELECT * from 
+    // conditional rendering of button 
 
-// add it to your garden 
+ if (status == STATUS_NO_PLANT) {
+        return (
+            <button onClick={(e) => sendAction(ADD_PLANT)}>
+                Add plant
+            </button>
+        );
+    } else {
+        return (
+            <button onClick={(e) => sendAction(DELETE_PLANT)}>
+                Remove plant
+            </button>
+        );

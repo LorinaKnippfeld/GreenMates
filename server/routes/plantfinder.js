@@ -1,8 +1,16 @@
 const express = require("express");
 // const database = require("../../database/database.js");
-const token = require("../secrets.json").TREFLE_TOKEN;
 const router = express.Router();
 const axios = require("axios");
+
+// arrange secrets for heroku
+
+let token;
+if (process.env.NODE_ENV == "production") {
+    token = process.env.TREFLE_TOKEN; // in prod the secrets are environment variables
+} else {
+    token = require("../secrets.json").TREFLE_TOKEN; // in dev they are in secrets.json which is listed in .gitignore
+}
 
 router.get("/api/findplants/:query", async (request, response) => {
     const query = request.params.query;
