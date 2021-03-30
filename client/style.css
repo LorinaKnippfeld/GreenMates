@@ -159,7 +159,7 @@
     font-size: 30px;
 }
 
-#registerhere:visited {
+#registerhere {
     color: #c697a1;
 }
 
@@ -168,21 +168,13 @@
     text-shadow: none;
 }
 
-#registerhere:before {
-    color: #c697a1;
-}
-
-.resethere:visited {
+.resethere {
     color: #c697a1;
 }
 
 .resethere:hover {
     color: #60ad65;
     text-shadow: none;
-}
-
-.resethere:before {
-    color: #c697a1;
 }
 
 .loginbutton {
@@ -583,7 +575,7 @@
     bottom: 8px;
 }
 
-.loginpathreg:visited {
+.loginpathreg {
     color: #c697a1;
     text-shadow: none;
 }
@@ -591,10 +583,6 @@
 .loginpathreg:hover {
     color: #60ad65;
     text-shadow: none;
-}
-
-.loginpathreg:before {
-    color: #c697a1;
 }
 
 /* ProfilePic Component -------------------------------------------- */
