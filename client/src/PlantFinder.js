@@ -11,7 +11,7 @@ export default function PlantFinder() {
     const dispatch = useDispatch();
     const token = useSelector((state) => state.token);
     const queryUrl = location.href.startsWith(
-        "https://git.heroku.com/green-mates.git"
+        "https://green-mates.herokuapp.com/"
     )
         ? `https://trefle.io/api/v1/plants/search?token=${token}&q=${query}`
         : `/api/findplants/${query}`;

@@ -40,10 +40,3 @@ CREATE TABLE chat_messages (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ); 
 
-INSERT INTO chat_messages (user_id, message_text)
-VALUES
-(1,'I am all natural'),
-(2,'What is your secret'),
-(1,'I only consume eggshells and coffee grounds'),
-(2,'Wow'),
-(4,'Sounds great I whish I could try it');
