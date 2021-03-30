@@ -59,25 +59,27 @@ export default function PlantFinder() {
                 {plant &&
                     plant.map((plantItem) => {
                         return (
-                            <div className="plantResult" key={plantItem.id}>
-                                <img
-                                    className="resultImage"
-                                    src={plantItem.image_url}
-                                />
-                                {plantItem.common_name} <br></br>
-                                {plantItem.scientific_name}
-                                <button
-                                    onClick={() =>
-                                        addPlant(
-                                            plantItem.id,
-                                            plantItem.common_name,
-                                            plantItem.scientific_name,
-                                            plantItem.image_url
-                                        )
-                                    }
-                                >
-                                    Add plant
-                                </button>
+                            <div className="plantResultWrapper">
+                                <div className="plantResult" key={plantItem.id}>
+                                    <img
+                                        className="resultImage"
+                                        src={plantItem.image_url}
+                                    />
+                                    {plantItem.common_name} <br></br>
+                                    {plantItem.scientific_name}
+                                    <button
+                                        onClick={() =>
+                                            addPlant(
+                                                plantItem.id,
+                                                plantItem.common_name,
+                                                plantItem.scientific_name,
+                                                plantItem.image_url
+                                            )
+                                        }
+                                    >
+                                        Add plant
+                                    </button>
+                                </div>
                             </div>
                         );
                     })}

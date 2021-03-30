@@ -38,7 +38,7 @@ export default function FindPeople() {
             <input
                 className="peopleSearch"
                 id="search"
-                autocomplete="off"
+                autoComplete="off"
                 type="text"
                 onChange={(event) => {
                     setQuery(event.target.value);

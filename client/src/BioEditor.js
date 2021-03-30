@@ -55,7 +55,7 @@ export default class BioEditor extends React.Component {
             );
         } else {
             return (
-                <div>
+                <div className="bioBio">
                     {bio && <p className="bioResult">{bio}</p>}
                     <button
                         className="bioButtonTwo"

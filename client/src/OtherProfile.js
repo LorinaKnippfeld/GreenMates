@@ -41,13 +41,14 @@ export default class OtherProfile extends React.Component {
         } else {
             return (
                 <div className="otherUser">
-                    <div id="otherUserProfile">
+                    <div className="otherUserProfile">
                         {user.firstname}'s profile page
                     </div>
                     <ProfilePic url={user.profile_pic_url} />
                     <div className="profileData">
-                        <p>{user.firstname}</p>
-                        <p>{user.lastname}</p>
+                        {user.firstname}
+                        <br></br>
+                        {user.lastname}
                     </div>
                     <p className="bioResult">{user.bio}</p>
                     <br />
