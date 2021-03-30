@@ -1052,7 +1052,7 @@ a:visited {
     font-family: "Test";
     font-size: 70px;
     position: absolute;
-    left: 600px;
+    left: 620px;
     top: 40px;
     width: 200px;
     color: black;
@@ -1091,10 +1091,13 @@ a:visited {
     top: 60px;
 }
 
-.chatWrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.messageBox {
+    position: absolute;
+    left: 110px;
+    top: 400px;
+    height: 600px;
+    overflow: auto;
+    width: 800px;
 }
 
 .Message {
@@ -1158,7 +1161,7 @@ a:visited {
 /* friends page component -------------------------------------------- */
 
 .friendsPage {
-    background-image: url("/Page_2.png");
+    background-image: url("/Page_4.png");
     background-size: contain;
     background-repeat: no-repeat;
     width: 1920px;
@@ -1379,4 +1382,125 @@ a:visited {
 
 .otherUser .linkHomeSearch:visited:hover {
     color: green;
+}
+
+/* Plant finder  -------------------------------------------- */
+
+.findPlants {
+    background-image: url("/Page_6.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 1920px;
+    height: 1080px;
+}
+
+.findPlants .logo {
+    position: absolute;
+    left: 1050px;
+    top: 60px;
+}
+
+.findPlants h1 {
+    font-family: "Masthina";
+    font-size: 100px;
+    position: absolute;
+    left: 530px;
+    top: 60px;
+    width: 600px;
+    color: black;
+    text-shadow: 1px 1px 1px grey;
+    font-weight: bold;
+}
+
+.findPlants h2 {
+    font-family: "MenschWF";
+    font-size: 30px;
+    position: absolute;
+    left: 350px;
+    top: 210px;
+    width: 300px;
+    color: #c697a1;
+    text-align: center;
+}
+
+.findPlants .linkHomeSearch {
+    position: absolute;
+    left: 180px;
+    top: 20px;
+    font-size: 35px;
+    font-family: "MenschWF";
+}
+
+.findPlants input {
+    position: absolute;
+    left: 680px;
+    top: 230px;
+    height: 30px;
+    width: 250px;
+}
+
+#pleaseSearch {
+    position: absolute;
+    left: 710px;
+    top: 210px;
+    height: 30px;
+    width: 250px;
+    font-size: 15px;
+    font-family: "MenschWF";
+    color: #c697a1;
+}
+
+.plantFinder button {
+    font-family: "MenschWF";
+    position: absolute;
+    left: 740px;
+    top: 265px;
+    display: inline-block;
+    margin: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.1875rem;
+    outline: none;
+    background-color: #c697a1;
+    color: white;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.5rem;
+    text-decoration: none;
+    text-align: center;
+    transition: all 150ms ease-out;
+}
+
+.plantFinder button:focus,
+.plantFinder button:hover {
+    background-color: #c697a1;
+    box-shadow: 0 0 0 0.1875rem white, 0 0 0 0.375rem #c697a1;
+}
+.plantFinder button:active {
+    background-color: #c697a1;
+    box-shadow: 0 0 0 0.1875rem #c697a1, 0 0 0 0.375rem #c697a1;
+    transition-duration: 75ms;
+}
+.plantFinder button.is-outlined {
+    border: 0.1875rem solid #c697a1;
+    background-color: transparent;
+    color: #c697a1;
+}
+.plantFinder button.is-outlined:focus,
+.plantFinder button.is-outlined:hover {
+    border-color: #c697a1;
+    color: #c697a1;
+}
+.plantFinder button.is-outlined:active {
+    border-color: #c697a1;
+    color: #c697a1;
+}
+
+.plantResult img {
+    width: 100px;
+    height: 100px;
+}
+
+.plantResult {
+    font-family: "MenschWF";
 }

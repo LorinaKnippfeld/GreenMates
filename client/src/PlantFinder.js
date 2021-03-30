@@ -10,7 +10,9 @@ export default function PlantFinder() {
     const [query, setQuery] = useState("");
     const dispatch = useDispatch();
     const token = useSelector((state) => state.token);
-    const queryUrl = location.href.startsWith("https://planti-vz.herokuapp.com")
+    const queryUrl = location.href.startsWith(
+        "https://git.heroku.com/green-mates.git"
+    )
         ? `https://trefle.io/api/v1/plants/search?token=${token}&q=${query}`
         : `/api/findplants/${query}`;
     console.log("first", queryUrl);
@@ -27,11 +29,16 @@ export default function PlantFinder() {
         });
     };
     return (
-        <div>
+        <div className="findPlants">
+            <h1>Plant Search</h1>
+            <h2>Search for plants here and add them to your garden.</h2>
+            <div className="logo"></div>
             <div className="plantFinder">
-                Hello Test <button onClick={getPlant}>Get plants here</button>
+                <button onClick={getPlant}>Search</button>
                 <input onChange={(e) => setQuery(e.target.value)} />
-                {!plant && <div>Please search</div>}
+                {!plant && (
+                    <div id="pleaseSearch">Please type here to search</div>
+                )}
                 {plant &&
                     plant.map((plantItem) => {
                         return (
@@ -40,7 +47,7 @@ export default function PlantFinder() {
                                     className="resultImage"
                                     src={plantItem.image_url}
                                 />
-                                {plantItem.common_name}
+                                {plantItem.common_name} <br></br>
                                 {plantItem.scientific_name}{" "}
                             </div>
                         );

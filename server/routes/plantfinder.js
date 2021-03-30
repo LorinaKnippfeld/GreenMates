@@ -16,7 +16,7 @@ router.get("/api/findplants/:query", async (request, response) => {
 
 router.get("/api/client-token", async (request, response) => {
     const params = {
-        origin: "https://planti-vz.herokuapp.com",
+        origin: "https://git.heroku.com/green-mates.git",
         ip: request.session.user.id,
         token: token,
     };
