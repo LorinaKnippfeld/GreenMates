@@ -15,6 +15,7 @@ export default class Profile extends React.Component {
     render() {
         return (
             <div className="profile">
+                <div className="logo"></div>
                 <div className="profileData">
                     {this.props.user.firstname}
                     <br></br>

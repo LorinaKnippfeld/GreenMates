@@ -15,9 +15,6 @@ export default class Menu extends React.Component {
             <div className="homeText">
                 Home
                 <div className="menu">
-                    <Link id="searchLink" to="/search">
-                        Search
-                    </Link>
                     <br></br>
                     <br></br>
                     <Link id="seeFriendsLink" to="/friends">
@@ -31,7 +28,9 @@ export default class Menu extends React.Component {
                     <Link id="editProfileLink" to="/user">
                         Profile
                     </Link>
-                    <Link id="findPlantsLink" to="/findplants"></Link>
+                    <Link id="findPlantsLink" to="/findplants">
+                        Plant Search
+                    </Link>
                 </div>
                 <div className="logo"></div>
             </div>

@@ -7,11 +7,11 @@ import Uploader from "./Uploader.js";
 import ProfilePic from "./ProfilePic.js";
 import Profile from "./Profile.js";
 import OtherProfile from "./OtherProfile.js";
-import FindPeople from "./FindPeople.js";
 import Menu from "./Menu.js";
 import FriendsAndWallabys from "./FriendsAndWallabys.js";
 import Chat from "./Chat.js";
 import PlantFinder from "./PlantFinder.js";
+import PlantGarden from "./PlantGarden.js";
 
 export default class App extends React.Component {
     constructor() {
@@ -90,11 +90,11 @@ export default class App extends React.Component {
                         }}
                     />
                     <Route path="/users/:id" component={OtherProfile} />
-                    <Route path="/search" component={FindPeople} />
                     <Route path="/" exact component={Menu} />
                     <Route path="/friends" component={FriendsAndWallabys} />
                     <Route path="/chat" component={Chat} />
                     <Route path="/findplants" component={PlantFinder} />
+                    <Route path="/plant-garden" component={PlantGarden} />
                 </BrowserRouter>
             </div>
         );

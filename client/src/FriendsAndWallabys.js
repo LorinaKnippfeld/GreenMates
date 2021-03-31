@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { acceptFriends, unfriend, loadFriends } from "./actions.js";
+import ProfilePic from "./ProfilePic.js";
+import FindPeople from "./FindPeople.js";
 
 // setup function
 
@@ -34,63 +36,70 @@ export default function FriendsAndWallabys(props) {
                 Search for other people here and see your list of current
                 friends and outstanding friend requests.
             </h1>
+            <h2>Friend requests</h2>
+            <div className="wallabyWrapper">
+                {!wallabys && <div>You have no current requests</div>}
+                {wallabys &&
+                    wallabys.map((wallaby) => {
+                        return (
+                            <div key={wallaby.id}>
+                                <div className="wallaby">
+                                    <ProfilePic url={wallaby.profile_pic_url} />
 
-            {!wallabys && <div>You have no current requests</div>}
-            {wallabys &&
-                wallabys.map((wallaby) => {
-                    return (
-                        <div key={wallaby.id} className="wallabyWrapper">
-                            <h2>Friend requests</h2>
-                            <div className="wallaby">
-                                <Link to={"/user/" + wallaby.id}>
-                                    profile page
-                                </Link>
-                                <img src={wallaby.profile_pic_url} />
-                                <div>
-                                    {wallaby.firstname} {wallaby.lastname}
+                                    <p>
+                                        {wallaby.firstname} {""}
+                                        {wallaby.lastname}
+                                    </p>
+                                    <button
+                                        onClick={(e) =>
+                                            dispatch(acceptFriends(wallaby.id))
+                                        }
+                                    >
+                                        Accept Friend
+                                    </button>
+                                    <Link to={"/users/" + wallaby.id}>
+                                        profile page
+                                    </Link>
                                 </div>
-                                <button
-                                    onClick={(e) =>
-                                        dispatch(acceptFriends(wallaby.id))
-                                    }
-                                >
-                                    Accept Friend
-                                </button>
                             </div>
-                        </div>
-                    );
-                })}
+                        );
+                    })}
+            </div>
 
             <h3>Friends</h3>
-            {!friends && <div>You have no friends</div>}
-            {friends &&
-                friends.map((friend) => {
-                    return (
-                        <div className="friendWrapper" key={friend.firstname}>
-                            <h2>Friend List</h2>
-                            <div className="friendList">
-                                <Link to={"/user/" + friend.id}>
-                                    profile page
-                                </Link>
-                                <img src={friend.profile_pic_url} />
-                                <p>
-                                    {friend.firstname}
-                                    {friend.lastname}
-                                </p>
-                                <button
-                                    onClick={(e) =>
-                                        dispatch(unfriend(friend.id))
-                                    }
-                                >
-                                    Unfriend
-                                </button>
+            <h4>Friend List</h4>
+            <div className="friendWrapper">
+                {!friends && <div>You have no friends</div>}
+                {friends &&
+                    friends.map((friend) => {
+                        return (
+                            <div key={friend.firstname}>
+                                <div className="friendList">
+                                    <ProfilePic url={friend.profile_pic_url} />
+
+                                    <p>
+                                        {friend.firstname} {""}
+                                        {friend.lastname}
+                                    </p>
+                                    <button
+                                        onClick={(e) =>
+                                            dispatch(unfriend(friend.id))
+                                        }
+                                    >
+                                        Unfriend
+                                    </button>
+                                    <Link to={"/users/" + friend.id}>
+                                        profile page
+                                    </Link>
+                                </div>
                             </div>
-                        </div>
-                    );
-                })}
+                        );
+                    })}
+            </div>
             <Link className="linkHomeSearch" to="/">
                 Back
             </Link>
+            <FindPeople />
         </div>
     );
 }

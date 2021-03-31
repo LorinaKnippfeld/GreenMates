@@ -834,6 +834,12 @@ a:visited {
     grid-template-columns: 500px 500px 1fr;
 }
 
+.app .profile .logo {
+    position: absolute;
+    left: 1030px;
+    top: 25px;
+}
+
 .app .profile img {
     height: 600px;
     width: 500px;
@@ -1174,6 +1180,10 @@ a:visited {
     font-family: "MenschWF";
 }
 
+.friendsPage #searchLink {
+    font-family: "MenschWF";
+}
+
 .friendsPage h1 {
     font-family: "MenschWF";
     font-size: 30px;
@@ -1200,6 +1210,19 @@ a:visited {
     font-family: "MenschWF";
     text-align: center;
     width: 500px;
+    position: absolute;
+    left: 110px;
+    top: 380px;
+}
+
+.friendsPage h4 {
+    font-family: "MenschWF";
+    font-size: 25px;
+    text-align: center;
+    width: 500px;
+    position: absolute;
+    left: 710px;
+    top: 380px;
 }
 
 .friendsPage .logo {
@@ -1217,27 +1240,8 @@ a:visited {
     width: 770px;
 }
 
-.wallabyWrapper div {
-    font-family: "MenschWF";
-    color: black;
-    font-size: 20px;
-    grid-column: 2;
-    grid-row: 1;
-    line-height: 50px;
-    justify-self: center;
-    align-self: center;
-}
-
-.wallaby img {
-    width: 100px;
-    height: 100px;
-    grid-row: 1;
-    grid-column: 1;
-    margin: 5px;
-    border-radius: 10px;
-}
-
-.wallaby {
+.wallaby,
+.friendList {
     margin: 10px;
     width: 500px;
     background-color: #f8ece0;
@@ -1245,9 +1249,8 @@ a:visited {
     height: 110px;
     display: grid;
     grid-template-rows: 100px;
-    grid-column: 100px 1fr 1fr 1fr;
-    justify-content: space-between;
-    line-height: none;
+    grid-template-columns: 100px 1fr 1fr 1fr;
+    justify-items: center;
 }
 
 .friendWrapper {
@@ -1259,54 +1262,45 @@ a:visited {
     width: 770px;
 }
 
-.friendList {
-    margin: 10px;
-    width: 500px;
-    background-color: #f8ece0;
-    border-radius: 10px;
-    height: 110px;
-    display: grid;
-    grid-template-rows: 100px;
-    grid-column: 100px 1fr 1fr 1fr;
-    justify-content: space-between;
-}
-
-.friendList p {
+.friendList p,
+.wallaby p {
     font-family: "MenschWF";
     color: black;
     font-size: 20px;
-    grid-column: 2;
-    grid-row: 1;
     line-height: 50px;
-    justify-self: center;
-    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
 }
 
-.friendList img {
+.friendList img,
+.wallaby img {
     width: 100px;
     height: 100px;
-    grid-row: 1;
-    grid-column: 1;
     margin: 5px;
     border-radius: 10px;
 }
 
-.friendsPage a {
+.friendList a,
+.wallaby a {
     font-family: "MenschWF";
     color: black;
-    grid-column: 4;
-    grid-row: 1;
     justify-self: center;
     align-self: center;
     font-size: 20px;
+    margin-right: 13px;
+}
+
+.friendList a:hover,
+.wallaby a:hover {
+    color: green;
 }
 
 .friendsPage button {
     font-family: "Mensch";
-    grid-column: 3;
-    grid-row: 1;
     justify-self: center;
-    align-self: center;
     display: inline-block;
     margin: 0.75rem;
     padding: 0.75rem 1.5rem;
@@ -1353,6 +1347,14 @@ a:visited {
     box-sizing: border-box;
 }
 
+.friendsPage #searchLink {
+    position: absolute;
+    left: 905px;
+    top: 300px;
+    font-size: 30px;
+    color: #c697a1;
+}
+
 /* Other people search  -------------------------------------------- */
 
 .searchUser .linkHomeSearch {
@@ -1383,19 +1385,23 @@ a:visited {
     height: 1080px;
 }
 
-.searchUser label {
-    position: absolute;
+.searchWrapper label {
     font-family: "MenschWF";
     font-size: 20px;
-    position: absolute;
-    top: 500px;
-    left: 10px;
+    color: #c697a1;
 }
 
-.searchUser input {
+.searchWrapper input {
+    width: 200px;
+    height: 20px;
+    position: relative;
+    bottom: 3px;
+}
+
+.searchWrapper {
     position: absolute;
-    top: 501px;
-    left: 300px;
+    top: 100px;
+    right: 200px;
 }
 
 .searchResult:hover {
@@ -1412,8 +1418,8 @@ a:visited {
 
 .searchResult {
     position: absolute;
-    top: 550px;
-    left: 100px;
+    top: 150px;
+    right: 200px;
     font-family: "MenschWf";
     font-size: 15px;
 }
@@ -1443,8 +1449,11 @@ a:visited {
     font-weight: bold;
     grid-column: 2;
     grid-row: 1;
-    justify-self: center;
-    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
 }
 
 .otherUser .profilePic {
@@ -1503,13 +1512,19 @@ a:visited {
     color: #c697a1;
 }
 .otherUser button:focus,
-.otherUser button:hover {
+.otherUser button.is-outlined:hover {
     border-color: #c697a1;
     color: #c697a1;
 }
 .otherUser button.is-outlined:active {
     border-color: #c697a1;
     color: #c697a1;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
 .otherUser .linkHomeSearch {

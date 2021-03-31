@@ -34,29 +34,33 @@ export default function FindPeople() {
 
     return (
         <div className="searchUser">
-            <label htmlFor="user-search">Search other plant enthusiasts:</label>
-            <input
-                className="peopleSearch"
-                id="search"
-                autoComplete="off"
-                type="text"
-                onChange={(event) => {
-                    setQuery(event.target.value);
-                }}
-            />
-            <div className="searchResult">
-                {users.map((users, index) => (
-                    <div key={index}>
-                        <Link to={"/users/" + users.id}>
-                            <p>
-                                {users.firstname} {users.lastname}
-                            </p>
-                        </Link>
-                    </div>
-                ))}
-                {!users.length && query && (
-                    <p id="searchError">Sorry. Nothing found.</p>
-                )}
+            <div className="searchWrapper">
+                <label htmlFor="user-search">
+                    Search other plant enthusiasts:
+                </label>
+                <input
+                    className="peopleSearch"
+                    id="search"
+                    autoComplete="off"
+                    type="text"
+                    onChange={(event) => {
+                        setQuery(event.target.value);
+                    }}
+                />
+                <div className="searchResult">
+                    {users.map((users, index) => (
+                        <div key={index}>
+                            <Link to={"/users/" + users.id}>
+                                <p>
+                                    {users.firstname} {users.lastname}
+                                </p>
+                            </Link>
+                        </div>
+                    ))}
+                    {!users.length && query && (
+                        <p id="searchError">Sorry. Nothing found.</p>
+                    )}
+                </div>
             </div>
             <Link className="linkHomeSearch" to="/">
                 Back

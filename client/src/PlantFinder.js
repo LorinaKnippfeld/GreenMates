@@ -56,10 +56,10 @@ export default function PlantFinder() {
                 {!plant && (
                     <div id="pleaseSearch">Please type here to search</div>
                 )}
-                {plant &&
-                    plant.map((plantItem) => {
-                        return (
-                            <div className="plantResultWrapper">
+                <div className="plantResultWrapper">
+                    {plant &&
+                        plant.map((plantItem) => {
+                            return (
                                 <div className="plantResult" key={plantItem.id}>
                                     <img
                                         className="resultImage"
@@ -80,9 +80,9 @@ export default function PlantFinder() {
                                         Add plant
                                     </button>
                                 </div>
-                            </div>
-                        );
-                    })}
+                            );
+                        })}
+                </div>
             </div>
             <Link className="linkHomeSearch" to="/">
                 Back
