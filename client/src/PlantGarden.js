@@ -1,5 +1,5 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "./myAxios";
 import { useState, useEffect } from "react";
 
@@ -26,19 +26,23 @@ export default function PlantFinder() {
 
     return (
         <div className="plantGarden">
-            <h2>This is your plant garden.</h2>
+            <h2>Plant Garden</h2>
+            <h1>
+                Welcome to your lovely plant garden, well done! Take good care
+                of your green friends.
+            </h1>
             <div className="logo"></div>
-            <div className="gardenOrganizer">
+            <div className="gardenWrapper">
                 {!myPlant && <div>No plants added yet</div>}
                 {myPlant &&
                     myPlant.map((item) => {
                         return (
-                            <div key={item.id}>
-                                <p>
-                                    {item.common_name}
-                                    {item.scientific_name}
-                                </p>
+                            <div className="gardenOrganizer" key={item.id}>
                                 <img src={item.image_url} />
+                                <h3>{item.common_name} </h3>
+                                <br></br>
+                                <h4>{item.scientific_name}</h4>
+
                                 <button
                                     className="plantDeleteButton"
                                     onClick={(e) => deletePlant(item.id)}
@@ -49,6 +53,13 @@ export default function PlantFinder() {
                         );
                     })}
             </div>
+
+            <Link className="linkHomeSearch" to="/">
+                Back
+            </Link>
+            <Link id="findPlantsLink" to="/findplants">
+                Click here to add plants to your garden
+            </Link>
         </div>
     );
 }

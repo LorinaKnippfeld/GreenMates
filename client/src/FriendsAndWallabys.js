@@ -33,8 +33,8 @@ export default function FriendsAndWallabys(props) {
         <div className="friendsPage">
             <div className="logo"></div>
             <h1>
-                Search for other people here and see your list of current
-                friends and outstanding friend requests.
+                Find lovely plant people and see your list of current friends as
+                well as outstanding friend requests.
             </h1>
             <h2>Friend requests</h2>
             <div className="wallabyWrapper">

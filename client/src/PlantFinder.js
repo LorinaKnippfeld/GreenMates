@@ -65,8 +65,9 @@ export default function PlantFinder() {
                                         className="resultImage"
                                         src={plantItem.image_url}
                                     />
-                                    {plantItem.common_name} <br></br>
-                                    {plantItem.scientific_name}
+                                    <h3> {plantItem.common_name} </h3>
+                                    <br></br>
+                                    <h4> {plantItem.scientific_name} </h4>
                                     <button
                                         onClick={() =>
                                             addPlant(
@@ -84,7 +85,7 @@ export default function PlantFinder() {
                         })}
                 </div>
             </div>
-            <Link className="linkHomeSearch" to="/">
+            <Link className="linkHomeSearch" to="/plant-garden">
                 Back
             </Link>
         </div>

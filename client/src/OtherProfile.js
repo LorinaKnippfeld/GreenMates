@@ -35,7 +35,7 @@ export default class OtherProfile extends React.Component {
         if (!user) {
             return (
                 <div className="Profilenotfound">
-                    <h1>profile not found ⛔️</h1>
+                    <h1>profile not found</h1>
                 </div>
             );
         } else {
@@ -53,7 +53,7 @@ export default class OtherProfile extends React.Component {
                     <p className="bioResult">{user.bio}</p>
                     <br />
                     {user.id && <FriendButton otherId={user.id} />}
-                    <Link className="linkHomeSearch" to="/">
+                    <Link className="linkHomeSearch" to="/friends">
                         Back
                     </Link>
                 </div>

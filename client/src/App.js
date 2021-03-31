@@ -38,7 +38,7 @@ export default class App extends React.Component {
         const { user, uploaderVisible } = this.state;
 
         if (!user) {
-            return <h1>Loading</h1>;
+            return <h1>Loading..</h1>;
         }
         return (
             <div className="app">

@@ -37,9 +37,9 @@ export default function FindPeople() {
             <div className="searchWrapper">
                 <label htmlFor="user-search">
                     Search other plant enthusiasts:
-                </label>
+                </label>{" "}
+                {""}
                 <input
-                    className="peopleSearch"
                     id="search"
                     autoComplete="off"
                     type="text"
